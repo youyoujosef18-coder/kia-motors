@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/organic-0a751465-69a0-40fd-b305-0bd409ec9609/styles.css">
+<script src="_ds/organic-0a751465-69a0-40fd-b305-0bd409ec9609/_ds_bundle.js"></script>
+<script src="./catalog.js"></script>
+<script src="./image-slot.js"></script>
+<script src="./vehicle-images.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ── Automotive theme: cool grey ground, navy ink, red accent, squared geometry. ──
+     Overrides the token layer so every screen re-skins from one place. */
+  :root {
+    --color-bg: #f4f5f7;
+    --color-surface: #ffffff;
+    --color-text: #101a33;
+    --color-divider: #dfe3e9;
+    --color-accent: #e02b28;
+    --color-accent-2: #24386b;
+
+    --color-neutral-100: #ffffff; --color-neutral-200: #f1f3f6; --color-neutral-300: #dfe3e9;
+    --color-neutral-400: #c2c8d2; --color-neutral-500: #8b93a3; --color-neutral-600: #5f6779;
+    --color-neutral-700: #3c4356; --color-neutral-800: #1d2438; --color-neutral-900: #0b1121;
+
+    --color-accent-100: #fdeceb; --color-accent-200: #fad4d2; --color-accent-300: #f4a9a5;
+    --color-accent-400: #ec6b66; --color-accent-500: #e02b28; --color-accent-600: #c31f1d;
+    --color-accent-700: #9d1917; --color-accent-800: #751412; --color-accent-900: #4d0d0c;
+
+    --color-accent-2-100: #eaeef7; --color-accent-2-200: #ccd6ea; --color-accent-2-300: #9db0d4;
+    --color-accent-2-400: #5b75ad; --color-accent-2-500: #24386b; --color-accent-2-600: #1b2c56;
+    --color-accent-2-700: #142343; --color-accent-2-800: #0f1c36; --color-accent-2-900: #080f1f;
+
+    --radius-sm: 2px; --radius-md: 3px; --radius-lg: 4px;
+    --shadow-sm: 0 1px 2px rgba(11,17,33,.08);
+    --shadow-md: 0 6px 18px rgba(11,17,33,.10);
+    --shadow-lg: 0 18px 44px rgba(11,17,33,.18);
+
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Barlow', sans-serif;
+  }
+  html, body { margin: 0; }
+  body { font-family: var(--font-body); }
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 800; letter-spacing: -0.025em; }
+  h1 { line-height: 0.98; }
+  a { color: var(--color-accent); text-decoration: none; }
+  a:hover { color: var(--color-accent-700); }
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--color-accent); outline-offset: 2px;
+  }
+  .text-muted { color: var(--color-neutral-600); }
+  .btn { border-radius: 2px; font-family: var(--font-heading); font-weight: 600; letter-spacing: 0.01em; }
+  .btn-primary { background: var(--color-accent); color: #fff; border-color: var(--color-accent); }
+  .btn-primary:hover { background: var(--color-accent-600); border-color: var(--color-accent-600); }
+  .btn-secondary { border-radius: 2px; }
+  .card { border-radius: 3px; }
+  .input, select.input, textarea.input { border-radius: 2px; font-family: var(--font-body); }
+  .tag { border-radius: 2px; font-family: var(--font-heading); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; font-size: 10px; }
+  .seg { border-radius: 2px; }
+  .seg-opt { border-radius: 1px; font-family: var(--font-heading); font-weight: 600; }
+  .dialog, .dialog-backdrop > .dialog { border-radius: 4px; }
+  .washed { filter: none; border-radius: 3px; }
+  .table th { text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px; font-family: var(--font-heading); color: var(--color-neutral-600); }
+  .card-kicker {
+    color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.14em;
+    font-weight: 700; font-size: 10px; font-family: var(--font-heading);
+    display: flex; align-items: center; gap: 7px;
+  }
+  .card-kicker::before { content: ""; width: 13px; height: 2px; background: var(--color-accent); flex: none; }
+  header .seg { background: rgba(255,255,255,.08); }
+  header .seg-opt { color: rgba(255,255,255,.76); }
+  ::-webkit-scrollbar { height: 10px; width: 10px; }
+  ::-webkit-scrollbar-thumb { background: var(--color-neutral-400); border-radius: 2px; }
+  @keyframes riseIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @keyframes heroDrift { from { transform: scale(1.04) translate3d(0,0,0); } to { transform: scale(1.14) translate3d(-2%,-1.5%,0); } }
+  @media (prefers-reduced-motion: reduce) { [style*="heroDrift"] { animation: none !important; } }
+  @media print {
+    body * { visibility: hidden !important; }
+    #quote-print, #quote-print * { visibility: visible !important; }
+    #quote-print { position: absolute; inset: 0; margin: 0; box-shadow: none !important; }
+  }
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);padding-bottom:var(--space-8)">
+
+  <header style="position:sticky;top:0;z-index:30;background:var(--color-neutral-900);box-shadow:0 2px 14px rgba(11,17,33,.28)">
+    <div style="max-width:1300px;margin:0 auto;padding:var(--space-3) var(--space-6);display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap">
+      <div style="font-family:var(--font-heading);font-weight:800;font-size:20px;letter-spacing:-0.03em;margin-right:auto;display:flex;align-items:center;gap:9px;color:var(--color-neutral-100)">
+        <span style="width:22px;height:22px;background:var(--color-accent);display:flex;align-items:center;justify-content:center;flex:none;clip-path:polygon(0 0,100% 0,100% 72%,50% 100%,0 72%)"></span>
+        {{ dealerName }}
+      </div>
+      <nav style="display:flex;gap:2px;flex-wrap:wrap">
+        <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="8">
+          <button type="button" class="btn" style="{{ n.style }}" onClick="{{ n.onClick }}">
+            {{ n.label }}
+            <sc-if value="{{ n.badge }}"><span style="{{ n.badgeStyle }}">{{ n.badge }}</span></sc-if>
+          </button>
+        </sc-for>
+      </nav>
+      <div class="seg" style="flex:none">
+        <sc-for list="{{ langOpts }}" as="l" hint-placeholder-count="3">
+          <button type="button" class="seg-opt" style="{{ l.style }}" onClick="{{ l.onClick }}">{{ l.code }}</button>
+        </sc-for>
+      </div>
+      <div class="seg" style="flex:none">
+        <sc-for list="{{ currencyOpts }}" as="c" hint-placeholder-count="3">
+          <button type="button" class="seg-opt" style="{{ c.style }}" onClick="{{ c.onClick }}">{{ c.code }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ signedIn }}">
+        <div style="display:flex;align-items:center;gap:8px;background:var(--color-surface);border-radius:999px;padding:4px 6px 4px var(--space-3);flex:none;box-shadow:var(--shadow-sm)">
+          <div style="display:flex;flex-direction:column;line-height:1.15">
+            <span style="font-size:12px;font-weight:700">{{ sessionName }}</span>
+            <span class="text-muted" style="font-size:10px">{{ sessionRole }}</span>
+          </div>
+          <span style="width:26px;height:26px;border-radius:999px;background:var(--color-accent-200);color:var(--color-accent-800);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex:none">{{ sessionInitial }}</span>
+          <button type="button" class="btn btn-ghost" style="font-size:12px;padding:4px 10px" onClick="{{ onSignOut }}">Sign out</button>
+        </div>
+      </sc-if>
+    </div>
+    <sc-if value="{{ site.barOn }}" hint-placeholder-val="{{ true }}">
+      <div style="background:var(--color-neutral-800)">
+        <div style="max-width:1300px;margin:0 auto;padding:7px var(--space-6);font-size:12px;color:var(--color-neutral-300);display:flex;gap:var(--space-3);flex-wrap:wrap">
+          <strong>{{ site.barTitle }}</strong>
+          <span>{{ site.barText }}</span>
+        </div>
+      </div>
+    </sc-if>
+  </header>
+
+  <!-- ═════════ SIGN-IN GATE ═════════ -->
+  <sc-if value="{{ isLogin }}">
+  <main style="max-width:1040px;margin:0 auto;padding:var(--space-8) var(--space-6) 0">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--space-8);align-items:start">
+      <div>
+        <span class="tag tag-accent-2">Private area</span>
+        <h1 style="font-size:clamp(30px,3.6vw,44px);margin:var(--space-3) 0;text-wrap:balance">{{ gateTitle }}</h1>
+        <p class="text-muted" style="font-size:16px;max-width:44ch;text-wrap:pretty">{{ gateSub }}</p>
+        <div style="display:flex;flex-direction:column;gap:var(--space-2);margin-top:var(--space-6)">
+          <h6 style="margin:0">Demo accounts</h6>
+          <div class="text-muted" style="font-size:12px;margin-bottom:4px">Tap to fill — every one uses the password shown on its row.</div>
+          <sc-for list="{{ demoAccounts }}" as="a" hint-placeholder-count="5">
+            <button type="button" onClick="{{ a.onClick }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:2px;background:var(--color-surface);border-radius:var(--radius-lg);padding:var(--space-3) var(--space-4);box-shadow:var(--shadow-sm)" style-hover="box-shadow:var(--shadow-md)">
+              <div style="display:flex;align-items:baseline;gap:var(--space-2)">
+                <span style="font-weight:700;font-size:13px">{{ a.label }}</span>
+                <span class="text-muted" style="font-size:11px;margin-left:auto">{{ a.email }}</span>
+              </div>
+              <span class="text-muted" style="font-size:11px;text-wrap:pretty">{{ a.scope }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+      <div class="card elev-md" style="gap:var(--space-3);padding:var(--space-8)">
+        <div class="field">
+          <label>Work email</label>
+          <input class="input" type="email" autocomplete="username" value="{{ loginEmail }}" onInput="{{ onLoginEmail }}" onKeyDown="{{ onLoginKey }}" placeholder="admin@kaimotors.dz">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input class="input" type="password" autocomplete="current-password" value="{{ loginPass }}" onInput="{{ onLoginPass }}" onKeyDown="{{ onLoginKey }}" placeholder="kai2026">
+        </div>
+        <sc-if value="{{ hasLoginError }}">
+          <div style="background:var(--color-accent-100);color:var(--color-accent-800);border-radius:var(--radius-lg);padding:var(--space-2) var(--space-3);font-size:13px">{{ loginError }}</div>
+        </sc-if>
+        <button type="button" class="btn btn-primary btn-block" onClick="{{ onSignIn }}">Sign in</button>
+        <button type="button" class="btn btn-ghost btn-block" onClick="{{ backToPublic }}">← Back to the public showroom</button>
+        <div class="text-muted" style="font-size:11px;text-wrap:pretty;margin-top:var(--space-2)">Prototype gate: it hides the admin surfaces and scopes the navigation by role, and the session persists for eight hours. Real deployment needs server-side authentication, hashed passwords and server-enforced RBAC — the browser can only ever hide, never protect.</div>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ═════════ STOREFRONT ═════════ -->
+  <sc-if value="{{ isStore }}" hint-placeholder-val="{{ true }}">
+  <main style="max-width:1300px;margin:0 auto;padding:0 var(--space-6)">
+    <section style="position:relative;margin:0 calc(-1 * var(--space-6));min-height:clamp(430px,50vw,600px);display:flex;align-items:flex-end;overflow:hidden;background:var(--color-neutral-900)">
+      <sc-if value="{{ site.heroVideoOn }}">
+        <div style="position:absolute;inset:0">{{ heroVideoEl }}</div>
+      </sc-if>
+      <sc-if value="{{ site.heroSlotOn }}" hint-placeholder-val="{{ true }}">
+        <div style="position:absolute;inset:0;animation:heroDrift 26s ease-in-out infinite alternate">
+          <image-slot id="site-hero" shape="rect" placeholder="Drop your showroom or workshop photograph"></image-slot>
+        </div>
+      </sc-if>
+      <div style="position:absolute;inset:0;background:linear-gradient(94deg,rgba(11,17,33,.94) 0%,rgba(11,17,33,.78) 44%,rgba(11,17,33,.30) 100%)"></div>
+      <div style="position:relative;width:100%;max-width:1300px;margin:0 auto;padding:var(--space-8) var(--space-6)">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:var(--space-3)">
+          <span style="width:15px;height:2px;background:var(--color-accent);flex:none"></span>
+          <span style="font-family:var(--font-heading);font-weight:700;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#fff">{{ site.kicker }}</span>
+        </div>
+        <h1 style="font-size:clamp(38px,5.6vw,74px);margin:0;color:#fff;max-width:19ch;text-wrap:balance">{{ site.title }}</h1>
+        <p style="font-size:17px;max-width:50ch;margin:var(--space-4) 0 var(--space-6);color:rgba(255,255,255,.82);text-wrap:pretty;line-height:1.55">{{ site.sub }}</p>
+        <div style="display:flex;gap:var(--space-2);flex-wrap:wrap">
+          <a class="btn btn-primary" href="#catalogue" style="padding:13px 26px;font-size:14px">Explore the catalogue →</a>
+          <button type="button" class="btn" style="padding:13px 26px;font-size:14px;color:#fff;border:1px solid rgba(255,255,255,.4);background:transparent" style-hover="background:rgba(255,255,255,.12)" onClick="{{ scrollToCatalogue }}">{{ t.quote }}</button>
+        </div>
+      </div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--color-divider);position:relative;z-index:2;margin:0 0 var(--space-8);box-shadow:var(--shadow-md)">
+      <sc-for list="{{ heroStats }}" as="s" hint-placeholder-count="3">
+        <div style="background:var(--color-surface);padding:var(--space-4) var(--space-6);display:flex;flex-direction:column;gap:3px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:27px;line-height:1;color:var(--color-accent-2-600)">{{ s.value }}</div>
+          <div class="text-muted" style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-family:var(--font-heading);font-weight:600">{{ s.label }}</div>
+        </div>
+      </sc-for>
+    </section>
+
+    <section id="catalogue" style="display:flex;flex-direction:column;gap:var(--space-3);padding:var(--space-2) 0 var(--space-6);scroll-margin-top:120px">
+      <div style="display:flex;gap:var(--space-3);align-items:center;flex-wrap:wrap">
+        <input class="input" style="flex:1;min-width:220px;max-width:380px" placeholder="{{ t.search }}" value="{{ q }}" onInput="{{ onSearch }}">
+        <div class="seg">
+          <sc-for list="{{ sortOpts }}" as="s" hint-placeholder-count="3">
+            <button type="button" class="seg-opt" style="{{ s.style }}" onClick="{{ s.onClick }}">{{ s.label }}</button>
+          </sc-for>
+        </div>
+        <span class="text-muted" style="font-size:13px;margin-left:auto">{{ resultLabel }}</span>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <sc-for list="{{ brandChips }}" as="b" hint-placeholder-count="17">
+          <button type="button" class="tag" style="{{ b.style }}" onClick="{{ b.onClick }}">{{ b.label }}</button>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-4)">
+      <sc-for list="{{ results }}" as="v" hint-placeholder-count="9">
+        <button type="button" onClick="{{ v.onOpen }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:var(--space-3);background:var(--color-surface);border-radius:calc(var(--radius-lg) * 1.15);padding:var(--space-3);box-shadow:var(--shadow-sm)" style-hover="box-shadow:var(--shadow-md);transform:translateY(-2px)">
+          <div class="washed" style="{{ v.heroStyle }}">
+            <span style="{{ v.colorStyle }}">{{ v.colorName }}</span>
+            <span class="tag" style="{{ v.stockStyle }}">{{ v.stock }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px;padding:0 var(--space-2);min-height:58px">
+            <div class="card-kicker">{{ v.brand }}</div>
+            <div style="font-family:var(--font-heading);font-size:16px;line-height:1.2;text-wrap:pretty">{{ v.model }}</div>
+            <sc-if value="{{ v.hasDetail }}">
+              <div class="text-muted" style="font-size:12px;line-height:1.35;text-wrap:pretty">{{ v.versionShort }}</div>
+            </sc-if>
+          </div>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:var(--space-2);padding:0 var(--space-2)">
+            <div>
+              <div style="{{ v.priceStyle }}">{{ v.price }}</div>
+              <div class="text-muted" style="font-size:11px;margin-top:3px">{{ v.sub }}</div>
+            </div>
+            <div style="display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end;max-width:96px">
+              <sc-for list="{{ v.colors }}" as="c" hint-placeholder-count="3">
+                <span title="{{ c.name }}" style="{{ c.dot }}"></span>
+              </sc-for>
+            </div>
+          </div>
+        </button>
+      </sc-for>
+    </section>
+    <sc-if value="{{ noResults }}">
+      <div class="card" style="align-items:flex-start;gap:var(--space-3);padding:var(--space-8);margin-top:var(--space-4)">
+        <h4>Nothing matches that filter</h4>
+        <button type="button" class="btn btn-secondary" onClick="{{ clearFilters }}">Clear filters</button>
+      </div>
+    </sc-if>
+  </main>
+  </sc-if>
+
+  <!-- ═════════ VEHICLE DETAIL ═════════ -->
+  <sc-if value="{{ isVehicle }}">
+  <main style="max-width:1300px;margin:0 auto;padding:var(--space-6) var(--space-6) 0">
+    <button type="button" class="btn btn-ghost" onClick="{{ backToStore }}">{{ t.back }}</button>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:var(--space-8);padding:var(--space-4) 0 var(--space-8);align-items:start">
+      <div style="display:flex;flex-direction:column;gap:var(--space-4);min-width:0">
+        <div style="{{ v.heroWrap }}">
+          {{ v.heroSlotEl }}
+        </div>
+        <div class="text-muted" style="font-size:11px;margin-top:-8px">{{ v.photoHint }}</div>
+
+        <sc-if value="{{ hasColors }}">
+          <div style="display:flex;flex-direction:column;gap:var(--space-2)">
+            <h6 style="margin:0">{{ t.colours }}</h6>
+            <div style="display:flex;gap:var(--space-2);flex-wrap:wrap">
+              <sc-for list="{{ vColors }}" as="c" hint-placeholder-count="4">
+                <button type="button" onClick="{{ c.onClick }}" style="{{ c.chip }}">
+                  <span style="{{ c.dot }}"></span>
+                  <span style="font-size:13px">{{ c.name }}</span>
+                  <sc-if value="{{ c.zh }}"><span class="text-muted" style="font-size:12px">{{ c.zh }}</span></sc-if>
+                  <sc-if value="{{ c.surcharge }}"><span class="tag tag-accent" style="font-size:10px;padding:1px 7px">{{ c.surcharge }}</span></sc-if>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ noColors }}">
+          <div class="card" style="gap:4px">
+            <h6 style="margin:0">{{ t.colours }}</h6>
+            <p class="card-body" style="margin:0">The price list does not name a colour for this configuration. Marked <strong>{{ t.notSpecified }}</strong> — confirm on the factory order sheet.</p>
+          </div>
+        </sc-if>
+
+        <div style="display:flex;flex-direction:column;gap:var(--space-2)">
+          <div style="display:flex;align-items:baseline;gap:var(--space-3);flex-wrap:wrap">
+            <h6 style="margin:0">{{ t.gallery }}</h6>
+            <span class="text-muted" style="font-size:12px">Ten required views · drop a verified photograph into any slot</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(136px,1fr));gap:var(--space-2)">
+            <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="10">
+              <div>
+                <div style="aspect-ratio:4/3;border-radius:var(--radius-md);overflow:hidden">
+                  <image-slot id="{{ g.slot }}" shape="rounded" radius="16" placeholder="{{ g.view }}"></image-slot>
+                </div>
+                <div class="text-muted" style="font-size:10px;margin-top:3px">{{ g.view }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-4)">
+          <div class="card elev-sm" style="gap:var(--space-3)">
+            <h4 style="margin:0">{{ t.specs }}</h4>
+            <div style="display:flex;flex-direction:column">
+              <sc-for list="{{ specRows }}" as="r" hint-placeholder-count="10">
+                <div style="display:flex;justify-content:space-between;gap:var(--space-3);padding:7px 0;border-bottom:1px solid color-mix(in srgb, var(--color-text) 8%, transparent);font-size:13px">
+                  <span class="text-muted" style="flex:none">{{ r.label }}</span>
+                  <span style="{{ r.valueStyle }}">{{ r.value }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+            <div class="card elev-sm" style="gap:var(--space-2)">
+              <h4 style="margin:0">{{ t.equipment }}</h4>
+              <p class="card-body">{{ equipmentCopy }}</p>
+              <button type="button" class="btn btn-secondary" onClick="{{ askInfo }}">Request full specification</button>
+            </div>
+            <sc-if value="{{ v.note }}">
+              <div class="card" style="background:var(--color-accent-100);gap:4px">
+                <div class="card-kicker" style="color:var(--color-accent-800)">Note on the price list</div>
+                <p class="card-body" style="margin:0;color:var(--color-accent-800)">{{ v.note }}</p>
+              </div>
+            </sc-if>
+            <sc-if value="{{ v.show360 }}">
+              <div class="card elev-sm" style="gap:var(--space-2);align-items:flex-start">
+                <h4 style="margin:0">360° viewer</h4>
+                <p class="card-body">Mounts once a 36-frame turntable exists for this colour.</p>
+                <span class="tag tag-neutral">Not available</span>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+
+        <sc-if value="{{ v.hasPrice }}">
+        <div class="card elev-sm" style="gap:var(--space-3)">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-3);flex-wrap:wrap">
+            <h4 style="margin:0">{{ t.finance }}</h4>
+            <span class="text-muted" style="font-size:12px">Indicative only · not an offer</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--space-3);align-items:end">
+            <div class="field">
+              <label>{{ finance.downLabel }}</label>
+              <input type="range" min="0" max="60" step="5" value="{{ finance.downPct }}" onInput="{{ onDown }}" style="width:100%;accent-color:var(--color-accent)">
+              <div class="text-muted" style="font-size:12px;margin-top:4px">{{ finance.downAmount }}</div>
+            </div>
+            <div class="field">
+              <label>{{ t.term }}</label>
+              <div class="seg" style="width:100%">
+                <sc-for list="{{ termOpts }}" as="o" hint-placeholder-count="4">
+                  <button type="button" class="seg-opt" style="{{ o.style }}" onClick="{{ o.onClick }}">{{ o.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+            <div class="field">
+              <label>{{ t.rate }}</label>
+              <input class="input" type="number" step="0.25" value="{{ finance.rate }}" onInput="{{ onRate }}">
+            </div>
+            <div style="background:var(--color-accent-2-100);border-radius:var(--radius-lg);padding:var(--space-3) var(--space-4)">
+              <div class="text-muted" style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase">{{ t.monthly }}</div>
+              <div style="font-family:var(--font-heading);font-size:23px;color:var(--color-accent-2-800);line-height:1.2">{{ finance.monthly }}</div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-secondary btn-block" onClick="{{ askFinance }}">Apply for financing</button>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ v.showRelated }}">
+        <div style="display:flex;flex-direction:column;gap:var(--space-3)">
+          <h4 style="margin:0">{{ t.related }}</h4>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--space-3)">
+            <sc-for list="{{ related }}" as="r" hint-placeholder-count="4">
+              <button type="button" onClick="{{ r.onOpen }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:6px;background:var(--color-surface);border-radius:var(--radius-lg);padding:var(--space-3)" style-hover="box-shadow:var(--shadow-md)">
+                <div class="washed" style="{{ r.thumbStyle }}"></div>
+                <div class="card-kicker">{{ r.brand }}</div>
+                <div style="font-family:var(--font-heading);font-size:14px;line-height:1.25">{{ r.model }}</div>
+                <div class="text-muted" style="font-size:12px">{{ r.price }}</div>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+      </div>
+
+      <aside style="position:sticky;top:110px;display:flex;flex-direction:column;gap:var(--space-3);min-width:0">
+        <div class="card elev-md" style="gap:var(--space-3)">
+          <div>
+            <div class="card-kicker">{{ v.brand }}</div>
+            <h2 style="margin:4px 0 4px;font-size:26px;line-height:1.15">{{ v.model }}</h2>
+            <sc-if value="{{ v.hasDetail }}">
+              <div class="text-muted" style="font-size:13px;text-wrap:pretty">{{ v.detail }}</div>
+            </sc-if>
+          </div>
+          <div style="display:flex;align-items:flex-end;gap:var(--space-3);flex-wrap:wrap">
+            <div>
+              <div class="text-muted" style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase">{{ t.fob }}</div>
+              <div style="font-family:var(--font-heading);font-size:32px;line-height:1.1">{{ v.priceMain }}</div>
+              <div class="text-muted" style="font-size:12px;margin-top:2px">{{ v.priceSub }}</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <span class="tag tag-neutral">{{ v.moqLabel }}</span>
+            <span class="tag" style="{{ v.stockStyle }}">{{ v.stock }}</span>
+            <sc-if value="{{ v.msrpLabel }}"><span class="tag tag-neutral">{{ v.msrpLabel }}</span></sc-if>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--space-2);margin-top:var(--space-1)">
+            <sc-for list="{{ ctas }}" as="c" hint-placeholder-count="5">
+              <button type="button" class="{{ c.cls }}" style="width:100%" onClick="{{ c.onClick }}">{{ c.label }}</button>
+            </sc-for>
+          </div>
+          <div class="text-muted" style="font-size:11px;text-wrap:pretty">Every request creates a CRM lead carrying this configuration, the selected colour and the quoted FOB price.</div>
+        </div>
+        <div class="card" style="background:var(--color-accent-2-100);gap:6px">
+          <div class="card-kicker" style="color:var(--color-accent-2-800)">Direct line</div>
+          <div style="font-family:var(--font-heading);font-size:17px">{{ whatsapp }}</div>
+          <div class="text-muted" style="font-size:12px">WhatsApp sales desk · replies logged to the lead timeline</div>
+        </div>
+      </aside>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ═════════ SITE EDITOR ═════════ -->
+  <sc-if value="{{ isContent }}">
+  <main style="max-width:1300px;margin:0 auto;padding:var(--space-6) var(--space-6) 0">
+    <div style="display:flex;align-items:baseline;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-2)">
+      <h1 style="margin:0;font-size:clamp(30px,3.4vw,42px)">Site editor</h1>
+      <span class="text-muted" style="font-size:13px">Everything the public site shows, editable here. Changes are live and persist.</span>
+      <div style="margin-left:auto;display:flex;gap:var(--space-2);flex-wrap:wrap">
+        <button type="button" class="btn btn-ghost" onClick="{{ resetSite }}">Reset to defaults</button>
+        <button type="button" class="btn btn-primary" onClick="{{ previewSite }}">View public site</button>
+      </div>
+    </div>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--space-4);padding:var(--space-4) 0">
+      <div class="card elev-sm" style="gap:var(--space-3)">
+        <h4 style="margin:0">Identity &amp; contact</h4>
+        <div class="field"><label>Dealership name</label><input class="input" value="{{ content.name }}" onInput="{{ onSiteName }}"></div>
+        <div class="field"><label>WhatsApp sales line</label><input class="input" value="{{ content.whatsapp }}" onInput="{{ onSiteWhatsapp }}"></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:var(--space-3)">
+          <div class="field"><label>Email</label><input class="input" value="{{ content.email }}" onInput="{{ onSiteEmail }}"></div>
+          <div class="field"><label>Phone</label><input class="input" value="{{ content.phone }}" onInput="{{ onSitePhone }}"></div>
+        </div>
+        <div class="field"><label>Address</label><input class="input" value="{{ content.address }}" onInput="{{ onSiteAddress }}"></div>
+      </div>
+
+      <div class="card elev-sm" style="gap:var(--space-3)">
+        <div style="display:flex;align-items:baseline;gap:var(--space-3);flex-wrap:wrap">
+          <h4 style="margin:0">Showroom copy</h4>
+          <div class="seg" style="margin-left:auto">
+            <sc-for list="{{ contentLangTabs }}" as="l" hint-placeholder-count="3">
+              <button type="button" class="seg-opt" style="{{ l.style }}" onClick="{{ l.onClick }}">{{ l.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div class="text-muted" style="font-size:11px">{{ content.editingNote }}</div>
+        <div class="field"><label>Kicker</label><input class="input" value="{{ content.kicker }}" onInput="{{ onSiteKicker }}"></div>
+        <div class="field"><label>Headline</label><textarea class="input" style="border-radius:var(--radius-md);min-height:74px" value="{{ content.title }}" onInput="{{ onSiteTitle }}"></textarea></div>
+        <div class="field"><label>Sub-headline</label><textarea class="input" style="border-radius:var(--radius-md);min-height:96px" value="{{ content.sub }}" onInput="{{ onSiteSub }}"></textarea></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+        <div class="card elev-sm" style="gap:var(--space-3)">
+          <h4 style="margin:0">Hero video</h4>
+          <div class="field"><label>Video URL (MP4 or WebM)</label><input class="input" value="{{ content.heroVideo }}" onInput="{{ onSiteHeroVideo }}" placeholder="https://…/showroom.mp4"></div>
+          <div class="field"><label>Or pick a file from this computer</label><input class="input" type="file" accept="video/*" onChange="{{ onHeroFile }}" style="padding:9px 12px;font-size:13px"></div>
+          <div class="field"><label>Poster image URL</label><input class="input" value="{{ content.heroPoster }}" onInput="{{ onSiteHeroPoster }}" placeholder="Shown while the film loads"></div>
+          <div style="background:var(--color-bg);border-left:2px solid var(--color-accent);padding:var(--space-2) var(--space-3);font-size:12px;text-wrap:pretty">{{ heroVideoState }}</div>
+          <div class="text-muted" style="font-size:11px;text-wrap:pretty">Muted, looping, autoplaying — the only form browsers allow without a tap. Host the file on your own CDN and paste the direct MP4 link; clear it to fall back to the image slot.</div>
+        </div>
+        <div class="card elev-sm" style="gap:var(--space-3)">
+          <h4 style="margin:0">Announcement bar</h4>
+          <div class="field"><label>Bold label</label><input class="input" value="{{ content.barTitle }}" onInput="{{ onSiteBarTitle }}"></div>
+          <div class="field"><label>Message</label><input class="input" value="{{ content.barText }}" onInput="{{ onSiteBarText }}"></div>
+        </div>
+        <div class="card elev-sm" style="gap:var(--space-2)">
+          <h4 style="margin:0">Show or hide on the public site</h4>
+          <sc-for list="{{ siteToggles }}" as="s" hint-placeholder-count="5">
+            <button type="button" onClick="{{ s.onToggle }}" style="{{ s.rowStyle }}" style-hover="background:var(--color-accent-100)">
+              <span style="flex:1;min-width:0;text-align:left">
+                <span style="display:block;font-size:13px;font-weight:600">{{ s.label }}</span>
+                <span class="text-muted" style="display:block;font-size:11px;text-wrap:pretty">{{ s.hint }}</span>
+              </span>
+              <span style="{{ s.pillStyle }}"><span style="{{ s.knobStyle }}"></span></span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <!-- ═════════ DASHBOARD ═════════ -->
+  <sc-if value="{{ isDash }}">
+  <main style="max-width:1300px;margin:0 auto;padding:var(--space-6) var(--space-6) 0">
+    <h1 style="margin:0 0 var(--space-4);font-size:clamp(30px,3.4vw,42px)">{{ t.dashboard }}</h1>
+    <section style="display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:var(--space-3)">
+      <sc-for list="{{ kpis }}" as="k" hint-placeholder-count="8">
+        <div class="card elev-sm" style="gap:2px;padding:var(--space-4)">
+          <div class="text-muted" style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase">{{ k.label }}</div>
+          <div style="{{ k.valueStyle }}">{{ k.value }}</div>
+          <div class="text-muted" style="font-size:12px">{{ k.sub }}</div>
+        </div>
+      </sc-for>
+    </section>
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:var(--space-4);padding:var(--space-4) 0">
+      <div class="card elev-sm" style="gap:var(--space-4)">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-2)">
+          <h4 style="margin:0">Configurations by brand</h4>
+          <span class="text-muted" style="font-size:12px">152 rows imported</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <sc-for list="{{ brandBars }}" as="b" hint-placeholder-count="17">
+            <div style="display:flex;align-items:center;gap:var(--space-3)">
+              <span class="text-muted" style="font-size:12px;width:112px;flex:none">{{ b.label }}</span>
+              <div style="flex:1;height:10px;background:var(--color-neutral-200);border-radius:999px;overflow:hidden">
+                <div style="{{ b.style }}"></div>
+              </div>
+              <span style="font-size:12px;width:26px;text-align:right;flex:none">{{ b.count }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+        <div class="card elev-sm" style="gap:var(--space-3)">
+          <h4 style="margin:0">FOB price distribution</h4>
+          <div style="display:flex;align-items:flex-end;gap:6px;height:150px">
+            <sc-for list="{{ priceBands }}" as="b" hint-placeholder-count="8">
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px;height:100%">
+                <div style="{{ b.style }}" title="{{ b.count }}"></div>
+                <span class="text-muted" style="font-size:10px">{{ b.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div class="card elev-sm" style="gap:var(--space-3)">
+          <h4 style="margin:0">Lead conversion funnel</h4>
+          <div style="display:flex;flex-direction:column;gap:var(--space-2)">
+            <sc-for list="{{ funnel }}" as="f" hint-placeholder-count="6">
+              <div style="display:flex;align-items:center;gap:var(--space-3)">
+                <span class="text-muted" style="font-size:12px;width:112px;flex:none">{{ f.label }}</span>
+                <div style="flex:1;height:20px;background:var(--color-neutral-200);border-radius:999px;overflow:hidden">
+                  <div style="{{ f.style }}"></div>
+                </div>
+                <span style="font-size:13px;width:26px;text-align:right;flex:none">{{ f.count }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="card elev-sm" style="gap:var(--space-3)">
+      <h4 style="margin:0">Data completeness from the source sheet</h4>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:var(--space-3)">
+        <sc-for list="{{ completeness }}" as="c" hint-placeholder-count="4">
+          <div style="background:var(--color-bg);border-radius:var(--radius-lg);padding:var(--space-3) var(--space-4)">
+            <div style="font-family:var(--font-heading);font-size:22px">{{ c.value }}</div>
+            <div class="text-muted" style="font-size:12px;text-wrap:pretty">{{ c.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <!-- ═════════ INVENTORY ═════════ -->
+  <sc-if value="{{ isInv }}">
+  <main style="max-width:1300px;margin:0 auto;padding:var(--space-6) var(--space-6) 0">
+    <div style="display:flex;align-items:baseline;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-4)">
+      <h1 style="margin:0;font-size:clamp(30px,3.4vw,42px)">{{ t.inventory }}</h1>
+      <span class="text-muted" style="font-size:13px">{{ invCountLabel }}</span>
+      <div style="margin-left:auto;display:flex;gap:var(--space-2);flex-wrap:wrap">
+        <input class="input" style="width:200px" placeholder="Filter rows" value="{{ invQ }}" onInput="{{ onInvSearch }}">
+        <button type="button" class="btn btn-secondary" onClick="{{ exportCatalogue }}">Export CSV</button>
+      </div>
+    </div>
+
+    <sc-if value="{{ hasSelection }}">
+      <div style="display:flex;align-items:center;gap:var(--space-2);flex-wrap:wrap;background:var(--color-neutral-900);color:var(--color-neutral-100);border-radius:999px;padding:var(--space-2) var(--space-4);margin-bottom:var(--space-3);animation:riseIn .18s ease">
+        <strong style="font-size:13px">{{ selectionLabel }}</strong>
+        <div style="display:flex;gap:6px;margin-left:auto;flex-wrap:wrap">
+          <sc-for list="{{ bulkActions }}" as="a" hint-placeholder-count="4">
+            <button type="button" class="btn" style="border:1px solid color-mix(in srgb, #f9f4ed 40%, transparent);color:var(--color-neutral-100);font-size:13px;padding:5px 14px" onClick="{{ a.onClick }}">{{ a.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <section class="card elev-sm" style="gap:0;padding:var(--space-2) var(--space-3)">
+      <div style="overflow-x:auto;max-height:620px">
+        <table class="table" style="min-width:900px">
+          <thead>
+            <tr>
+              <th style="width:34px"></th>
+              <th>Brand</th><th>Model / version as printed</th><th>FOB $</th><th>MSRP ¥</th><th>Colours</th><th>MOQ</th><th>Status</th><th>Published</th><th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ invRows }}" as="r" hint-placeholder-count="12">
+              <tr style="{{ r.rowStyle }}">
+                <td><input type="checkbox" checked="{{ r.selected }}" onChange="{{ r.onSelect }}" style="accent-color:var(--color-accent)"></td>
+                <td class="text-muted" style="font-size:12px">{{ r.brand }}</td>
+                <td style="font-size:13px;max-width:290px;text-wrap:pretty">{{ r.version }}</td>
+                <td style="font-variant-numeric:tabular-nums;font-weight:600">{{ r.price }}</td>
+                <td class="text-muted" style="font-variant-numeric:tabular-nums;font-size:12px">{{ r.msrp }}</td>
+                <td>
+                  <div style="display:flex;gap:3px;flex-wrap:wrap;max-width:88px">
+                    <sc-for list="{{ r.colors }}" as="c" hint-placeholder-count="3">
+                      <span title="{{ c.name }}" style="{{ c.dot }}"></span>
+                    </sc-for>
+                  </div>
+                </td>
+                <td class="text-muted" style="font-size:12px">{{ r.moq }}</td>
+                <td><span class="tag" style="{{ r.stockStyle }}">{{ r.stock }}</span></td>
+                <td><button type="button" class="tag" style="{{ r.pubStyle }}" onClick="{{ r.onPublish }}">{{ r.pubLabel }}</button></td>
+                <td><button type="button" class="btn btn-ghost" style="font-size:13px" onClick="{{ r.onExpand }}">{{ r.expandLabel }}</button></td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <sc-if value="{{ expandedOn }}">
+      <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--space-4);padding:var(--space-4) 0;animation:riseIn .2s ease">
+        <div class="card elev-md" style="gap:var(--space-3)">
+          <div>
+            <div class="card-kicker">Editing</div>
+            <h4 style="margin:2px 0 0;font-size:17px;text-wrap:pretty">{{ ex.name }}</h4>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:var(--space-3)">
+            <div class="field"><label>FOB price (USD)</label><input class="input" type="number" value="{{ ex.fob }}" onChange="{{ onFobChange }}"></div>
+            <div class="field"><label>Minimum order qty</label><input class="input" type="number" value="{{ ex.moq }}" onChange="{{ onMoqChange }}"></div>
+          </div>
+          <div class="text-muted" style="font-size:11px">Any deviation from the sheet is written to the audit log with actor and timestamp.</div>
+        </div>
+        <div class="card elev-md" style="gap:var(--space-3)">
+          <h4 style="margin:0">Colour manager</h4>
+          <div style="display:flex;flex-direction:column;gap:var(--space-2)">
+            <sc-for list="{{ ex.colorRows }}" as="c" hint-placeholder-count="3">
+              <div style="display:flex;align-items:center;gap:var(--space-2);background:var(--color-bg);border-radius:999px;padding:5px 6px 5px var(--space-3)">
+                <span style="{{ c.dot }}"></span>
+                <span style="font-size:13px;flex:1;min-width:0">{{ c.name }}</span>
+                <code style="font-size:11px;opacity:0.55">{{ c.hex }}</code>
+                <button type="button" class="btn btn-icon" style="width:26px;height:26px;font-size:14px" onClick="{{ c.onDelete }}">×</button>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:flex;gap:var(--space-2);flex-wrap:wrap">
+            <input class="input" style="flex:1;min-width:110px" placeholder="Colour name" value="{{ newColorName }}" onInput="{{ onNewColorName }}">
+            <input type="color" value="{{ newColorHex }}" onInput="{{ onNewColorHex }}" style="width:46px;height:36px;border:1px solid var(--color-divider);border-radius:999px;background:var(--color-surface);padding:3px">
+            <button type="button" class="btn btn-primary" onClick="{{ addColor }}">Add</button>
+          </div>
+        </div>
+        <div class="card elev-md" style="gap:var(--space-3)">
+          <h4 style="margin:0">Image manager</h4>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:6px">
+            <sc-for list="{{ ex.views }}" as="g" hint-placeholder-count="10">
+              <div>
+                <div style="aspect-ratio:4/3;border-radius:var(--radius-sm);overflow:hidden">
+                  <image-slot id="{{ g.slot }}" shape="rounded" radius="10" placeholder="{{ g.view }}"></image-slot>
+                </div>
+                <div class="text-muted" style="font-size:9px;margin-top:2px">{{ g.view }}</div>
+              </div>
+            </sc-for>
+          </div>
+          <div class="text-muted" style="font-size:11px">Each image stores source, source URL, colour, view and a verified-model flag.</div>
+        </div>
+      </section>
+    </sc-if>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--space-4);padding:var(--space-4) 0">
+      <div class="card elev-sm" style="gap:var(--space-3)">
+        <h4 style="margin:0">Exchange rates</h4>
+        <p class="card-body">Set by an administrator, never fetched live. USD FOB stays the authoritative base.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:var(--space-3)">
+          <div class="field"><label>1 USD = EUR</label><input class="input" type="number" step="0.01" value="{{ rateEur }}" onChange="{{ onRateEur }}"></div>
+          <div class="field"><label>1 USD = DZD</label><input class="input" type="number" step="0.5" value="{{ rateDzd }}" onChange="{{ onRateDzd }}"></div>
+        </div>
+      </div>
+      <div class="card elev-sm" style="gap:var(--space-3)">
+        <h4 style="margin:0">Audit log</h4>
+        <div style="display:flex;flex-direction:column;gap:var(--space-2);max-height:210px;overflow-y:auto">
+          <sc-for list="{{ auditRows }}" as="a" hint-placeholder-count="3">
+            <div style="display:flex;gap:var(--space-3);font-size:12px;padding-bottom:var(--space-2);border-bottom:1px solid color-mix(in srgb, var(--color-text) 8%, transparent)">
+              <span class="text-muted" style="flex:none;width:48px">{{ a.time }}</span>
+              <span style="flex:1;min-width:0;text-wrap:pretty">{{ a.what }}</span>
+              <span class="text-muted" style="flex:none">{{ a.who }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <!-- ═════════ SALES DESK ═════════ -->
+  <sc-if value="{{ isCrm }}">
+  <main style="max-width:1300px;margin:0 auto;padding:var(--space-6) var(--space-6) 0">
+    <div style="display:flex;align-items:baseline;gap:var(--space-4);flex-wrap:wrap;margin-bottom:var(--space-4)">
+      <h1 style="margin:0;font-size:clamp(30px,3.4vw,42px)">{{ t.desk }}</h1>
+      <div class="seg">
+        <sc-for list="{{ crmTabs }}" as="c" hint-placeholder-count="2">
+          <button type="button" class="seg-opt" style="{{ c.style }}" onClick="{{ c.onClick }}">{{ c.label }}</button>
+        </sc-for>
+      </div>
+      <span class="text-muted" style="font-size:13px;margin-left:auto">{{ crmSummary }}</span>
+    </div>
+
+    <sc-if value="{{ isLeads }}">
+      <section class="card elev-sm" style="gap:0;padding:var(--space-2) var(--space-3)">
+        <div style="overflow-x:auto">
+          <table class="table" style="min-width:940px">
+            <thead><tr><th>Customer</th><th>Configuration</th><th>Colour</th><th>FOB</th><th>Source</th><th>Owner</th><th>Status</th><th>Follow-up</th></tr></thead>
+            <tbody>
+              <sc-for list="{{ leadRows }}" as="l" hint-placeholder-count="8">
+                <tr>
+                  <td><div style="font-weight:600">{{ l.name }}</div><div class="text-muted" style="font-size:12px">{{ l.date }}</div></td>
+                  <td style="max-width:240px"><div style="font-size:13px;text-wrap:pretty">{{ l.vehicle }}</div><div class="text-muted" style="font-size:11px">{{ l.brand }}</div></td>
+                  <td><div style="display:flex;align-items:center;gap:6px"><span style="{{ l.dot }}"></span><span style="font-size:12px">{{ l.color }}</span></div></td>
+                  <td style="font-variant-numeric:tabular-nums">{{ l.price }}</td>
+                  <td><span class="tag tag-neutral" style="font-size:10px">{{ l.source }}</span></td>
+                  <td class="text-muted" style="font-size:12px">{{ l.owner }}</td>
+                  <td>
+                    <select class="input" style="min-height:30px;font-size:12px;padding-inline:10px" value="{{ l.status }}" onChange="{{ l.onStatus }}">
+                      <sc-for list="{{ leadStatuses }}" as="s" hint-placeholder-count="4"><option value="{{ s }}">{{ s }}</option></sc-for>
+                    </select>
+                  </td>
+                  <td><span class="tag" style="{{ l.taskStyle }}">{{ l.task }}</span></td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ isPipeline }}">
+      <div class="text-muted" style="font-size:12px;margin-bottom:var(--space-2)">Drag a deal card between columns to move the stage.</div>
+      <section style="overflow-x:auto;padding-bottom:var(--space-4)">
+        <div style="display:flex;gap:var(--space-3);align-items:flex-start;min-width:max-content">
+          <sc-for list="{{ stages }}" as="st" hint-placeholder-count="7">
+            <div style="width:232px;flex:none;display:flex;flex-direction:column;gap:var(--space-2)">
+              <div style="display:flex;align-items:baseline;gap:6px;padding:0 var(--space-2)">
+                <span style="font-family:var(--font-heading);font-size:14px">{{ st.label }}</span>
+                <span class="tag tag-neutral" style="font-size:10px;padding:1px 8px">{{ st.count }}</span>
+              </div>
+              <div class="text-muted" style="font-size:11px;padding:0 var(--space-2)">{{ st.value }}</div>
+              <div style="{{ st.colStyle }}" onDragOver="{{ st.onDragOver }}" onDrop="{{ st.onDrop }}" onDragLeave="{{ st.onDragLeave }}">
+                <sc-for list="{{ st.deals }}" as="d" hint-placeholder-count="2">
+                  <div draggable="true" onDragStart="{{ d.onDragStart }}" onDragEnd="{{ d.onDragEnd }}" style="{{ d.cardStyle }}">
+                    <div style="display:flex;justify-content:space-between;gap:6px;align-items:baseline">
+                      <span style="font-weight:600;font-size:13px">{{ d.customer }}</span>
+                      <span class="text-muted" style="font-size:10px">{{ d.id }}</span>
+                    </div>
+                    <div class="text-muted" style="font-size:11px;text-wrap:pretty">{{ d.vehicle }}</div>
+                    <div style="font-family:var(--font-heading);font-size:15px">{{ d.price }}</div>
+                    <div style="display:flex;align-items:center;gap:6px;margin-top:2px">
+                      <span class="tag" style="{{ d.ownerStyle }}">{{ d.initials }}</span>
+                      <span class="text-muted" style="font-size:11px;flex:1;min-width:0">{{ d.salesperson }}</span>
+                      <button type="button" class="btn btn-ghost" style="font-size:11px;padding:2px 6px" onClick="{{ d.onQuote }}">Quote</button>
+                    </div>
+                  </div>
+                </sc-for>
+                <sc-if value="{{ st.empty }}">
+                  <div class="text-muted" style="font-size:11px;text-align:center;padding:var(--space-4) 0">Drop here</div>
+                </sc-if>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </sc-if>
+  </main>
+  </sc-if>
+
+  <!-- ═════════ QUOTE BUILDER ═════════ -->
+  <sc-if value="{{ isQuote }}">
+  <main style="max-width:1300px;margin:0 auto;padding:var(--space-6) var(--space-6) 0">
+    <div style="display:flex;align-items:baseline;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-4)">
+      <h1 style="margin:0;font-size:clamp(30px,3.4vw,42px)">{{ t.quotes }}</h1>
+      <span class="tag" style="{{ quote.statusStyle }}">{{ quote.status }}</span>
+      <div style="margin-left:auto;display:flex;gap:var(--space-2)">
+        <button type="button" class="btn btn-secondary" onClick="{{ sendQuote }}">Mark sent</button>
+        <button type="button" class="btn btn-primary" onClick="{{ printQuote }}">Export PDF</button>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--space-4);align-items:start">
+      <div class="card elev-sm" style="gap:var(--space-3)">
+        <h4 style="margin:0">Build the quotation</h4>
+        <div class="field">
+          <label>Configuration (from the price list)</label>
+          <select class="input" value="{{ quote.vehicleId }}" onChange="{{ onQuoteVehicle }}">
+            <sc-for list="{{ quoteVehicleOpts }}" as="o" hint-placeholder-count="6"><option value="{{ o.id }}">{{ o.label }}</option></sc-for>
+          </select>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:var(--space-3)">
+          <div class="field"><label>Customer</label><input class="input" value="{{ quote.customer }}" onInput="{{ onQuoteCustomer }}"></div>
+          <div class="field"><label>Units</label><input class="input" type="number" min="1" value="{{ quote.qty }}" onInput="{{ onQuoteQty }}"></div>
+          <div class="field"><label>Discount per unit (USD)</label><input class="input" type="number" value="{{ quote.discount }}" onInput="{{ onQuoteDiscount }}"></div>
+          <div class="field"><label>Trade-in allowance (USD)</label><input class="input" type="number" value="{{ quote.tradeIn }}" onInput="{{ onQuoteTradeIn }}"></div>
+          <div class="field"><label>Freight &amp; fees (USD)</label><input class="input" type="number" value="{{ quote.fees }}" onInput="{{ onQuoteFees }}"></div>
+          <div class="field"><label>Duty / tax %</label><input class="input" type="number" step="0.5" value="{{ quote.tax }}" onInput="{{ onQuoteTax }}"></div>
+        </div>
+        <sc-if value="{{ quote.moqWarning }}">
+          <div style="background:var(--color-accent-100);color:var(--color-accent-800);border-radius:var(--radius-lg);padding:var(--space-2) var(--space-3);font-size:12px">{{ quote.moqWarning }}</div>
+        </sc-if>
+      </div>
+
+      <div id="quote-print" class="card elev-md" style="gap:var(--space-4);padding:var(--space-8);background:var(--color-neutral-100)">
+        <div style="display:flex;justify-content:space-between;gap:var(--space-4);align-items:flex-start;flex-wrap:wrap">
+          <div>
+            <div style="font-family:var(--font-heading);font-size:22px">{{ dealerName }}</div>
+            <div class="text-muted" style="font-size:12px">Proforma quotation · FOB China</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-family:var(--font-heading);font-size:17px">{{ quote.ref }}</div>
+            <div class="text-muted" style="font-size:12px">{{ quote.date }} · valid 14 days</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:var(--space-3)">
+          <div><div class="text-muted" style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em">Prepared for</div><div style="font-size:15px;font-weight:600">{{ quote.customer }}</div></div>
+          <div><div class="text-muted" style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em">Salesperson</div><div style="font-size:15px;font-weight:600">{{ quote.salesperson }}</div></div>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:700;text-wrap:pretty">{{ quote.vehicleLabel }}</div>
+          <div class="text-muted" style="font-size:12px">{{ quote.vehicleMeta }}</div>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ quote.lines }}" as="l" hint-placeholder-count="6">
+            <div style="{{ l.rowStyle }}">
+              <span style="flex:1;min-width:0">{{ l.label }}</span>
+              <span style="font-variant-numeric:tabular-nums">{{ l.value }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div class="text-muted" style="font-size:11px;text-wrap:pretty">Prices are FOB per the source price list dated 0901. Converted amounts are estimates at the administrator-set rate and are not binding. Equipment and interior specification to be confirmed on the factory order sheet.</div>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ═════════ MY GARAGE ═════════ -->
+  <sc-if value="{{ isGarage }}">
+  <main style="max-width:1120px;margin:0 auto;padding:var(--space-6) var(--space-6) 0">
+    <div style="display:flex;align-items:baseline;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-2)">
+      <h1 style="margin:0;font-size:clamp(30px,3.4vw,42px)">{{ t.garage }}</h1>
+      <span class="text-muted" style="font-size:14px">{{ garage.greeting }}</span>
+    </div>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--space-4);padding:var(--space-4) 0">
+      <div class="card elev-md" style="gap:var(--space-3)">
+        <div class="card-kicker">Your vehicle</div>
+        <div class="washed" style="{{ garage.heroStyle }}"></div>
+        <div>
+          <div style="font-family:var(--font-heading);font-size:19px;text-wrap:pretty">{{ garage.vehicle }}</div>
+          <div class="text-muted" style="font-size:13px">{{ garage.vehicleMeta }}</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span class="tag tag-accent-2">{{ garage.status }}</span>
+          <span class="tag tag-neutral">{{ garage.vin }}</span>
+        </div>
+      </div>
+      <div class="card elev-sm" style="gap:var(--space-3)">
+        <h4 style="margin:0">Delivery status</h4>
+        <div style="display:flex;flex-direction:column;gap:0">
+          <sc-for list="{{ garage.timeline }}" as="s" hint-placeholder-count="5">
+            <div style="display:flex;gap:var(--space-3);align-items:flex-start">
+              <div style="display:flex;flex-direction:column;align-items:center;flex:none">
+                <span style="{{ s.dot }}"></span>
+                <span style="{{ s.line }}"></span>
+              </div>
+              <div style="padding-bottom:var(--space-3)">
+                <div style="{{ s.labelStyle }}">{{ s.label }}</div>
+                <div class="text-muted" style="font-size:11px">{{ s.when }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div class="card elev-sm" style="gap:var(--space-3)">
+        <h4 style="margin:0">Payments</h4>
+        <div style="display:flex;flex-direction:column;gap:var(--space-2)">
+          <sc-for list="{{ garage.payments }}" as="p" hint-placeholder-count="3">
+            <div style="display:flex;justify-content:space-between;gap:var(--space-2);font-size:13px;padding-bottom:7px;border-bottom:1px solid color-mix(in srgb, var(--color-text) 8%, transparent)">
+              <div><div>{{ p.label }}</div><div class="text-muted" style="font-size:11px">{{ p.when }}</div></div>
+              <div style="text-align:right"><div style="font-weight:600">{{ p.amount }}</div><span class="tag" style="{{ p.style }}">{{ p.state }}</span></div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-family:var(--font-heading);font-size:16px;padding-top:var(--space-1)">
+          <span>Balance</span><span>{{ garage.balance }}</span>
+        </div>
+      </div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-4);padding-bottom:var(--space-6)">
+      <div class="card elev-sm" style="gap:var(--space-2)">
+        <h4 style="margin:0">Documents</h4>
+        <sc-for list="{{ garage.documents }}" as="d" hint-placeholder-count="4">
+          <div style="display:flex;align-items:center;gap:var(--space-2);font-size:13px;padding:5px 0;border-bottom:1px solid color-mix(in srgb, var(--color-text) 8%, transparent)">
+            <span style="flex:1;min-width:0">{{ d.label }}</span>
+            <span class="tag" style="{{ d.style }}">{{ d.state }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div class="card elev-sm" style="gap:var(--space-2)">
+        <h4 style="margin:0">Saved configurations</h4>
+        <sc-for list="{{ garage.saved }}" as="s" hint-placeholder-count="3">
+          <button type="button" onClick="{{ s.onOpen }}" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:var(--space-2);padding:6px 0;border-bottom:1px solid color-mix(in srgb, var(--color-text) 8%, transparent)" style-hover="opacity:0.7">
+            <span style="{{ s.dot }}"></span>
+            <span style="flex:1;min-width:0;font-size:13px;text-wrap:pretty">{{ s.label }}</span>
+            <span style="font-size:13px;font-weight:600">{{ s.price }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <div class="card elev-sm" style="gap:var(--space-2)">
+        <h4 style="margin:0">Service</h4>
+        <p class="card-body">No service history yet. Your first scheduled maintenance opens once delivery completes.</p>
+        <button type="button" class="btn btn-secondary" onClick="{{ bookService }}">Book an appointment</button>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <!-- ═════════ MOBILE SALES ═════════ -->
+  <sc-if value="{{ isMobile }}">
+  <main style="max-width:1300px;margin:0 auto;padding:var(--space-6) var(--space-6) 0">
+    <div style="display:flex;align-items:baseline;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-4)">
+      <h1 style="margin:0;font-size:clamp(30px,3.4vw,42px)">Mobile sales</h1>
+      <span class="text-muted" style="font-size:13px">What a salesperson carries on the floor</span>
+    </div>
+    <div style="display:flex;justify-content:center;padding-bottom:var(--space-8)">
+      <div style="width:390px;max-width:100%;background:var(--color-neutral-900);border-radius:44px;padding:12px;box-shadow:var(--shadow-lg)">
+        <div style="background:var(--color-bg);border-radius:34px;overflow:hidden;height:760px;display:flex;flex-direction:column">
+          <div style="padding:var(--space-4) var(--space-4) var(--space-3);display:flex;align-items:baseline;gap:var(--space-2)">
+            <div style="font-family:var(--font-heading);font-size:17px;margin-right:auto">Today</div>
+            <span class="tag tag-accent">{{ mobile.count }}</span>
+          </div>
+          <div style="flex:1;overflow-y:auto;padding:0 var(--space-3) var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)">
+            <sc-for list="{{ mobile.leads }}" as="l" hint-placeholder-count="6">
+              <div class="card elev-sm" style="gap:var(--space-2);padding:var(--space-3)">
+                <div style="display:flex;align-items:baseline;gap:6px">
+                  <span style="font-weight:700;font-size:14px;flex:1;min-width:0">{{ l.name }}</span>
+                  <span class="tag" style="{{ l.statusStyle }}">{{ l.status }}</span>
+                </div>
+                <div class="text-muted" style="font-size:12px;text-wrap:pretty">{{ l.vehicle }}</div>
+                <div style="display:flex;align-items:center;gap:6px">
+                  <span style="{{ l.dot }}"></span>
+                  <span class="text-muted" style="font-size:11px;flex:1;min-width:0">{{ l.color }}</span>
+                  <span style="font-family:var(--font-heading);font-size:15px">{{ l.price }}</span>
+                </div>
+                <div style="display:flex;gap:6px;margin-top:2px">
+                  <button type="button" class="btn btn-secondary" style="flex:1;min-height:44px;font-size:13px" onClick="{{ l.onCall }}">Call</button>
+                  <button type="button" class="btn btn-secondary" style="flex:1;min-height:44px;font-size:13px" onClick="{{ l.onWhats }}">WhatsApp</button>
+                  <button type="button" class="btn btn-primary" style="flex:1;min-height:44px;font-size:13px" onClick="{{ l.onAdvance }}">Advance</button>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <footer style="max-width:1300px;margin:0 auto;padding:var(--space-8) var(--space-6) 0;display:flex;gap:var(--space-4);flex-wrap:wrap;align-items:baseline">
+    <span class="text-muted" style="font-size:12px">{{ dealerName }} · one in-memory store behind the storefront, inventory, CRM, pipeline, quotes and customer portal.</span>
+    <span class="text-muted" style="font-size:12px;margin-left:auto">{{ footerNote }}</span>
+  </footer>
+
+  <sc-if value="{{ dialogOn }}">
+    <div class="dialog-backdrop" style="z-index:60">
+      <div class="dialog" style="animation:riseIn .2s ease">
+        <div class="dialog-title">{{ dialogTitle }}</div>
+        <div class="dialog-body">Creates a CRM lead carrying the configuration, colour and FOB price, plus a 24-hour follow-up task.</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:var(--space-3)">
+          <div class="field"><label>Full name</label><input class="input" value="{{ form.name }}" onInput="{{ onFormName }}" placeholder="Amine Belkacem"></div>
+          <div class="field"><label>Phone</label><input class="input" value="{{ form.phone }}" onInput="{{ onFormPhone }}" placeholder="+213 …"></div>
+        </div>
+        <div class="field"><label>Note for the salesperson</label><textarea class="input" style="border-radius:var(--radius-md)" value="{{ form.note }}" onInput="{{ onFormNote }}" placeholder="Delivery window, financing, colour preference…"></textarea></div>
+        <div style="display:flex;align-items:center;gap:var(--space-2);background:var(--color-bg);border-radius:var(--radius-lg);padding:var(--space-2) var(--space-3);font-size:12px">
+          <span style="{{ dialogDot }}"></span>
+          <span style="flex:1;min-width:0;text-wrap:pretty">{{ dialogVehicle }}</span>
+          <strong>{{ dialogPrice }}</strong>
+        </div>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-secondary" onClick="{{ closeDialog }}">Cancel</button>
+          <button type="button" class="btn btn-primary" onClick="{{ submitDialog }}">Send request</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ toast }}">
+    <div style="position:fixed;bottom:var(--space-6);left:50%;transform:translateX(-50%);z-index:70;background:var(--color-neutral-900);color:var(--color-neutral-100);padding:var(--space-3) var(--space-6);border-radius:999px;box-shadow:var(--shadow-lg);font-size:14px;animation:riseIn .2s ease;max-width:90vw;text-align:center">{{ toast }}</div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;dealerName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;KAI MOTORS&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;defaultLanguage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;fr&quot;,&quot;zh&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;defaultCurrency&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;USD&quot;,&quot;EUR&quot;,&quot;DZD&quot;],&quot;default&quot;:&quot;USD&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;startScreen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;store&quot;,&quot;dashboard&quot;,&quot;inventory&quot;,&quot;crm&quot;,&quot;quote&quot;,&quot;garage&quot;,&quot;mobile&quot;],&quot;default&quot;:&quot;store&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;+213 770 00 00 00&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const LEAD_STATUSES = ['New', 'Contacted', 'Qualified', 'Vehicle Selected', 'Test Drive Scheduled', 'Negotiation', 'Finance Pending', 'Reserved', 'Won', 'Lost'];
+const STAGES = ['New Lead', 'Qualified', 'Vehicle Selected', 'Quote Sent', 'Negotiation', 'Reservation', 'Payment', 'Contract', 'Delivery', 'Completed'];
+const VIEWS = ['Front 3/4', 'Rear 3/4', 'Side profile', 'Front', 'Rear', 'Interior', 'Dashboard', 'Seats', 'Wheels', 'Trunk'];
+const SALES = ['Yacine B.', 'Nadia K.', 'Omar T.'];
+
+/* Public surfaces need no session. Everything else is staff-only. */
+const PUBLIC = ['store', 'vehicle'];
+
+const ROLE_ACCESS = {
+  'Super Admin': ['dashboard', 'content', 'inventory', 'crm', 'quote', 'mobile', 'garage'],
+  'General Manager': ['dashboard', 'content', 'inventory', 'crm', 'quote'],
+  'Sales Manager': ['dashboard', 'crm', 'quote', 'mobile'],
+  'Salesperson': ['crm', 'quote', 'mobile'],
+  'Inventory Manager': ['inventory', 'dashboard'],
+  'Marketing': ['content', 'dashboard'],
+  'Accountant': ['dashboard', 'quote'],
+  'Customer': ['garage']
+};
+
+const USERS = [
+  { email: 'admin@kaimotors.dz', pass: 'kai2026', name: 'S. Amrani', role: 'Super Admin' },
+  { email: 'gm@kaimotors.dz', pass: 'kai2026', name: 'F. Benali', role: 'General Manager' },
+  { email: 'sales@kaimotors.dz', pass: 'kai2026', name: 'Yacine B.', role: 'Salesperson' },
+  { email: 'stock@kaimotors.dz', pass: 'kai2026', name: 'M. Ziani', role: 'Inventory Manager' },
+  { email: 'marketing@kaimotors.dz', pass: 'kai2026', name: 'L. Haddad', role: 'Marketing' },
+  { email: 'ines@example.com', pass: 'garage', name: 'Inès Bensalah', role: 'Customer' }
+];
+
+const SESSION_KEY = 'dealership-os.session';
+const SITE_KEY = 'dealership-os.site';
+
+function defaultSite(props) {
+  const t = (window.CATALOG && window.CATALOG.t) || { en: {}, fr: {}, zh: {} };
+  const per = function (key) { return { en: t.en[key] || '', fr: t.fr[key] || '', zh: t.zh[key] || '' }; };
+  return {
+    name: props.dealerName || 'KAI MOTORS',
+    whatsapp: props.whatsappNumber || '+213 770 00 00 00',
+    email: 'sales@kaimotors.dz',
+    phone: '+213 21 00 00 00',
+    address: 'Zone industrielle, Alger',
+    kicker: per('heroKicker'), title: per('heroTitle'), sub: per('heroSub'),
+    heroVideoOn: true,
+    heroVideo: 'assets/hero-loop.mp4',
+    heroPoster: '',
+    barOn: true,
+    barTitle: 'Source of truth · CPC-kai - 0901.pdf',
+    barText: 'FOB prices as printed · duplicate and ambiguous rows preserved',
+    showMsrp: true, showFinance: true, show360: true, showRelated: true
+  };
+}
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const cat = window.CATALOG || { cars: [], t: { en: {} } };
+    const cars = cat.cars.map(function (c) { return Object.assign({}, c, { colors: c.colors.slice() }); });
+
+    // Seeded demo activity, spread across real configurations from the sheet.
+    const priced = cars.filter(function (c) { return c.fob; });
+    const pick = function (n) { return priced[(n * 17) % priced.length]; };
+    const names = ['Amine Belkacem', 'Sofia Haddad', 'Karim Mansouri', 'Leila Bouzid', 'Rachid Ould', 'Nour Cherif', 'Hamza Dali', 'Inès Bensalah'];
+    const sources = ['Request quotation', 'Book test drive', 'Reserve vehicle', 'WhatsApp inquiry', 'Request financing', 'Request more information', 'Trade-in request', 'Request quotation'];
+    const statuses = ['Negotiation', 'Test Drive Scheduled', 'Reserved', 'Contacted', 'Finance Pending', 'New', 'Qualified', 'Won'];
+    const tasks = ['Quote follow-up today', 'Drive Thu 14:00', 'Deposit received', 'Call back 24h', 'Documents required', 'Assign owner', 'Valuation pending', 'Delivery scheduled'];
+    const leads = names.map(function (n, i) {
+      const v = pick(i + 1);
+      return {
+        id: 'L-' + (2100 + i), name: n, vehicleId: v.id,
+        color: v.colors.length ? v.colors[0].name : 'Not specified',
+        source: sources[i], status: statuses[i], owner: i === 5 ? 'Unassigned' : SALES[i % 3],
+        date: ['04 Sep', '05 Sep', '06 Sep', '07 Sep', '08 Sep', '09 Sep', '09 Sep', '02 Sep'][i], task: tasks[i]
+      };
+    });
+    const dealStages = ['Negotiation', 'Reservation', 'Payment', 'Delivery', 'Quote Sent', 'Vehicle Selected', 'Qualified', 'New Lead', 'Contract', 'Completed', 'Completed'];
+    const deals = dealStages.map(function (st, i) {
+      const v = pick(i + 3);
+      return { id: 'D-' + (1030 + i), customer: names[i % names.length], vehicleId: v.id, salesperson: SALES[i % 3], stage: st };
+    });
+
+    this.state = {
+      cars: cars, screen: props.startScreen || 'store', vehicleId: null,
+      currency: props.defaultCurrency || 'USD', lang: props.defaultLanguage || 'en',
+      rates: { USD: 1, EUR: 0.92, DZD: 134.5 },
+      q: '', brand: 'All', sort: 'brand', invQ: '',
+      colorPick: {}, down: 20, term: 48, rate: 7.5,
+      dialog: null, form: { name: '', phone: '', note: '' }, toast: '',
+      leads: leads, deals: deals, dragId: null, overStage: null,
+      audit: [
+        { time: '09:42', what: 'Catalogue imported from CPC-kai - 0901.pdf — 152 rows, duplicates preserved', who: 'system' },
+        { time: '09:18', what: 'Geely Galaxy Starship 7 flagged Suspended Sales — no FOB price on the sheet', who: 'system' },
+        { time: '08:55', what: 'Exchange rates set — USD/DZD 134.5, USD/EUR 0.92', who: 'S. Amrani' }
+      ],
+      sel: [], expanded: null, crmTab: 'leads',
+      newColorName: '', newColorHex: '#c67139',
+      auth: null, loginForm: { email: '', pass: '' }, loginError: '', loginBusy: false,
+      sessionStart: null, site: defaultSite(props), contentLang: 'en', heroVideoFailed: false,
+      quote: { vehicleId: null, customer: 'Amine Belkacem', qty: 1, discount: 0, tradeIn: 0, fees: 1450, tax: 30, status: 'Draft', salesperson: 'Yacine B.' }
+    };
+  }
+
+  /* /admin (or #admin) is the only way in — there is no sign-in button on the public site. */
+  adminRoute() {
+    const h = (window.location.hash || '').replace('#', '').replace(/^\/+/, '').toLowerCase();
+    if (h === 'admin') return true;
+    return /\/admin\/?$/.test(window.location.pathname.toLowerCase());
+  }
+
+  syncRoute() {
+    const h = (window.location.hash || '').replace('#', '').toLowerCase();
+    if (h === 'catalogue') return;
+    const onAdmin = this.adminRoute();
+    const a = this.state.auth;
+    if (onAdmin && !a) { this.setState({ screen: 'login', loginError: '' }); return; }
+    if (!onAdmin && PUBLIC.indexOf(this.state.screen) === -1) { this.setState({ screen: 'store', expanded: null, sel: [] }); return; }
+    if (onAdmin && a && PUBLIC.indexOf(this.state.screen) > -1) {
+      this.setState({ screen: (ROLE_ACCESS[a.role] || ['store'])[0] });
+      return;
+    }
+    this.forceUpdate();
+  }
+
+  componentDidMount() {
+    const self = this;
+    this._onHash = function () { self.syncRoute(); };
+    window.addEventListener('hashchange', this._onHash);
+    try {
+      const rawSite = window.localStorage.getItem(SITE_KEY);
+      if (rawSite) this.setState({ site: Object.assign({}, defaultSite(this.props), JSON.parse(rawSite)) });
+    } catch (e) { /* keep defaults */ }
+    try {
+      const raw = window.localStorage.getItem(SESSION_KEY);
+      if (raw) {
+        const sess = JSON.parse(raw);
+        if (sess && sess.email && Date.now() - sess.at < 36e5 * 8) {
+          const u = USERS.filter(function (x) { return x.email === sess.email; })[0];
+          if (u) this.setState({ auth: { name: u.name, role: u.role, email: u.email }, sessionStart: sess.at });
+        } else {
+          window.localStorage.removeItem(SESSION_KEY);
+        }
+      }
+    } catch (e) { /* storage unavailable — stay signed out */ }
+    this.syncRoute();
+  }
+
+  setSite(fields) {
+    const next = Object.assign({}, this.state.site, fields);
+    this.setState({ site: next });
+    try { window.localStorage.setItem(SITE_KEY, JSON.stringify(next)); } catch (e) { /* no-op */ }
+  }
+
+  setSiteLang(key, value) {
+    const per = Object.assign({}, this.state.site[key]);
+    per[this.state.contentLang] = value;
+    const fields = {};
+    fields[key] = per;
+    this.setSite(fields);
+  }
+
+  /* Private screens need BOTH a session and the /admin route, so a leftover
+     session can never surface admin navigation on the public URL. */
+  allowed(screen) {
+    if (PUBLIC.indexOf(screen) > -1 || screen === 'login') return true;
+    if (!this.adminRoute()) return false;
+    const a = this.state.auth;
+    return !!a && (ROLE_ACCESS[a.role] || []).indexOf(screen) > -1;
+  }
+
+  signIn() {
+    const f = this.state.loginForm;
+    const email = f.email.trim().toLowerCase();
+    const u = USERS.filter(function (x) { return x.email === email && x.pass === f.pass; })[0];
+    if (!u) { this.setState({ loginError: 'Those credentials do not match an active account.' }); return; }
+    const at = Date.now();
+    try { window.localStorage.setItem(SESSION_KEY, JSON.stringify({ email: u.email, at: at })); } catch (e) { /* no-op */ }
+    const home = (ROLE_ACCESS[u.role] || ['store'])[0];
+    const target = this.allowedFor(u.role, this.state.screen) ? this.state.screen : home;
+    this.setState({ auth: { name: u.name, role: u.role, email: u.email }, sessionStart: at, loginForm: { email: '', pass: '' }, loginError: '', screen: target });
+    this.logAudit('Signed in · ' + u.name + ' (' + u.role + ')');
+    this.flash('Signed in as ' + u.name + ' · ' + u.role);
+  }
+
+  allowedFor(role, screen) {
+    if (PUBLIC.indexOf(screen) > -1) return true;
+    return (ROLE_ACCESS[role] || []).indexOf(screen) > -1;
+  }
+
+  signOut() {
+    const who = this.state.auth ? this.state.auth.name : '';
+    try { window.localStorage.removeItem(SESSION_KEY); } catch (e) { /* no-op */ }
+    this.setState({ auth: null, sessionStart: null, screen: 'store', expanded: null, sel: [] });
+    this.flash('Signed out' + (who ? ' · ' + who : ''));
+  }
+
+  T() { const c = window.CATALOG; return (c && c.t[this.state.lang]) || (c && c.t.en) || {}; }
+  money(usd, cur) {
+    if (usd === null || usd === undefined) return this.T().contactDealer || 'Contact dealer';
+    const c = cur || this.state.currency;
+    const v = Math.round(usd * (this.state.rates[c] || 1));
+    const s = v.toLocaleString('en-US');
+    return c === 'USD' ? '$' + s : c === 'EUR' ? '€' + s : 'DA ' + s;
+  }
+  car(id) { return this.state.cars.filter(function (v) { return v.id === id; })[0]; }
+  pickedColor(v) {
+    if (!v || !v.colors.length) return { name: this.T().notSpecified || 'Not specified', hex: '#a19786', zh: null };
+    const p = this.state.colorPick[v.id];
+    return v.colors.filter(function (c) { return c.name === p; })[0] || v.colors[0];
+  }
+  /* Model-level photo from vehicle-images.js (licensed, credited) — null when none was found. */
+  photo(v) { return (v && window.VEHICLE_IMAGES && window.VEHICLE_IMAGES[v.id]) || null; }
+  heroStyle(hex, h, img) {
+    const ground = img
+      ? 'linear-gradient(180deg,rgba(11,17,33,0) 50%,rgba(11,17,33,.6) 100%),url(' + img + ') center/cover no-repeat,' + hex
+      : 'linear-gradient(150deg,' + hex + '55,' + hex + '14)';
+    return 'height:' + h + ';border-radius:var(--radius-lg);background:' + ground + ';' +
+      'display:flex;align-items:flex-end;justify-content:space-between;gap:var(--space-3);padding:var(--space-3) var(--space-4);' +
+      'box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--color-text) 8%, transparent)';
+  }
+  dot(hex, size) {
+    return 'width:' + size + 'px;height:' + size + 'px;flex:none;border-radius:999px;background:' + hex +
+      ';box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--color-text) 22%, transparent)';
+  }
+  stockStyle(s) {
+    if (s === 'Available') return 'background:var(--color-accent-2-100);color:var(--color-accent-2-800)';
+    if (s === 'Suspended') return 'background:var(--color-accent-200);color:var(--color-accent-800)';
+    return 'background:var(--color-neutral-300);color:var(--color-neutral-900)';
+  }
+  pill(on) {
+    return on ? 'background:var(--color-accent);color:var(--color-bg);border:1px solid var(--color-accent);cursor:pointer;font-family:var(--font-body);font-weight:600'
+      : 'background:transparent;color:var(--color-text);border:1px solid var(--color-divider);cursor:pointer;font-family:var(--font-body)';
+  }
+  navStyle(on) {
+    return on
+      ? 'background:var(--color-accent);color:#fff;gap:7px;font-size:13px;padding:8px 15px'
+      : 'background:transparent;color:rgba(255,255,255,.76);gap:7px;font-size:13px;padding:8px 15px';
+  }
+  segStyle(on) { return 'font-family:var(--font-heading);font-weight:600;' + (on ? 'background:var(--color-accent);color:#fff' : 'background:transparent;color:var(--color-text)'); }
+  /* Header sits on near-black, so its segmented controls need light ink. */
+  segStyleDark(on) { return 'font-family:var(--font-heading);font-weight:600;' + (on ? 'background:var(--color-accent);color:#fff' : 'background:transparent;color:rgba(255,255,255,.76)'); }
+  bar(pct, color, horiz) {
+    return horiz ? 'width:' + Math.max(2, pct) + '%;height:100%;background:' + color + ';border-radius:999px'
+      : 'width:100%;height:' + Math.max(3, pct) + '%;background:' + color + ';border-radius:8px 8px 3px 3px';
+  }
+  go(screen) {
+    const s = this;
+    return function () {
+      const priv = PUBLIC.indexOf(screen) === -1;
+      if (priv && !s.adminRoute()) window.location.hash = 'admin';
+      if (!priv && s.adminRoute()) window.location.hash = '';
+      s.setState({ screen: screen, expanded: null });
+      window.scrollTo(0, 0);
+    };
+  }
+  flash(m) { const s = this; this.setState({ toast: m }); clearTimeout(this._t); this._t = setTimeout(function () { s.setState({ toast: '' }); }, 2800); }
+  logAudit(what) {
+    const d = new Date(), time = String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
+    this.setState(function (s) { return { audit: [{ time: time, what: what, who: 'S. Amrani' }].concat(s.audit) }; });
+  }
+  patch(id, fields) {
+    this.setState(function (s) { return { cars: s.cars.map(function (v) { return v.id === id ? Object.assign({}, v, fields) : v; }) }; });
+  }
+  componentWillUnmount() { clearTimeout(this._t); window.removeEventListener('hashchange', this._onHash); }
+
+
+  openVehicle(id) { const s = this; return function () { s.setState({ screen: 'vehicle', vehicleId: id }); window.scrollTo(0, 0); }; }
+  openDialog(kind) { const s = this; return function () { s.setState({ dialog: kind }); }; }
+
+  submit() {
+    const s = this.state, v = this.car(s.vehicleId), c = this.pickedColor(v);
+    const name = s.form.name.trim() || 'Website visitor';
+    const lead = {
+      id: 'L-' + (2200 + s.leads.length), name: name, vehicleId: v.id, color: c.name,
+      source: s.dialog, status: 'New', owner: 'Unassigned',
+      date: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short' }), task: 'Follow up within 24h'
+    };
+    const deal = { id: 'D-' + (1060 + s.deals.length), customer: name, vehicleId: v.id, salesperson: 'Unassigned', stage: 'New Lead' };
+    this.setState({ leads: [lead].concat(s.leads), deals: [deal].concat(s.deals), dialog: null, form: { name: '', phone: '', note: '' } });
+    this.patch(v.id, { requests: v.requests + 1 });
+    this.flash(s.dialog + ' logged · ' + lead.id + ' created · ' + v.model + ' · ' + c.name);
+  }
+
+  filtered() {
+    const s = this.state, q = s.q.trim().toLowerCase();
+    let list = s.cars.filter(function (v) { return v.published; });
+    if (s.brand !== 'All') list = list.filter(function (v) { return v.brand === s.brand; });
+    if (q) list = list.filter(function (v) { return (v.brand + ' ' + v.version).toLowerCase().indexOf(q) > -1; });
+    const out = list.slice();
+    if (s.sort === 'low') out.sort(function (a, b) { return (a.fob || 1e9) - (b.fob || 1e9); });
+    if (s.sort === 'high') out.sort(function (a, b) { return (b.fob || 0) - (a.fob || 0); });
+    return out;
+  }
+
+  renderVals() {
+    const self = this, s = this.state, t = this.T();
+    const dealerName = s.site.name || this.props.dealerName || 'KAI MOTORS';
+    const cars = s.cars;
+    const priced = cars.filter(function (v) { return v.fob; });
+    const list = this.filtered();
+    const publishedCount = cars.filter(function (v) { return v.published; }).length;
+    const newLeads = s.leads.filter(function (l) { return l.status === 'New'; }).length;
+
+    const nav = [['store', t.showroom], ['dashboard', t.dashboard], ['content', 'Site editor'], ['inventory', t.inventory], ['crm', t.desk], ['quote', t.quotes], ['garage', t.garage], ['mobile', t.mobile]]
+      .filter(function (n) { return self.allowed(n[0]); });
+    const gated = !this.allowed(s.screen);
+    const vals = {
+      dealerName: dealerName, t: t,
+      whatsapp: s.site.whatsapp || this.props.whatsappNumber || '+213 770 00 00 00',
+      sourceLine: cars.length + ' configurations · 18 brand blocks · FOB prices as printed · duplicate and ambiguous rows preserved',
+      footerNote: s.auth ? 'Signed in · ' + s.auth.role + ' · session expires 8h after sign-in' : 'Showroom is public · inventory, CRM, quotes and reporting require a staff sign-in',
+      navItems: nav.map(function (n) {
+        const on = s.screen === n[0] || (n[0] === 'store' && s.screen === 'vehicle');
+        return {
+          label: n[1], style: self.navStyle(on), onClick: self.go(n[0]),
+          badge: n[0] === 'crm' && newLeads ? String(newLeads) : '',
+          badgeStyle: 'background:#fff;color:var(--color-accent);border-radius:2px;font-size:10px;padding:1px 6px;font-weight:700'
+        };
+      }),
+      langOpts: [['en', 'EN'], ['fr', 'FR'], ['zh', '中文']].map(function (l) {
+        return { code: l[1], style: self.segStyleDark(s.lang === l[0]), onClick: function () { self.setState({ lang: l[0] }); } };
+      }),
+      currencyOpts: ['USD', 'EUR', 'DZD'].map(function (c) {
+        return { code: c, style: self.segStyleDark(s.currency === c), onClick: function () { self.setState({ currency: c }); } };
+      }),
+      isStore: !gated && s.screen === 'store', isVehicle: !gated && s.screen === 'vehicle' && !!s.vehicleId,
+      isDash: !gated && s.screen === 'dashboard', isInv: !gated && s.screen === 'inventory', isCrm: !gated && s.screen === 'crm',
+      isQuote: !gated && s.screen === 'quote', isGarage: !gated && s.screen === 'garage', isMobile: !gated && s.screen === 'mobile',
+      isLogin: gated || s.screen === 'login',
+      /* Built here, not in the template: native on* content attributes execute their
+         literal hole text during streaming, and a media element's playback state must
+         survive re-render. A missing file must never leave a black hero. */
+      heroVideoEl: React.createElement('video', {
+        key: 'hero-' + (s.heroBlob || s.site.heroVideo),
+        src: s.heroBlob || s.site.heroVideo || undefined,
+        poster: s.site.heroPoster || undefined,
+        autoPlay: true, muted: true, loop: true, playsInline: true, preload: 'auto',
+        style: { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' },
+        onLoadedMetadata: function (e) { const p = e.target.play(); if (p && p.catch) p.catch(function () { /* blocked — poster stands in */ }); },
+        onError: function () { if (!s.heroVideoFailed) self.setState({ heroVideoFailed: true }); }
+      }),
+      isContent: !gated && s.screen === 'content',
+      site: {
+        barOn: s.site.barOn, barTitle: s.site.barTitle, barText: s.site.barText,
+        heroVideoOn: !!(s.site.heroVideoOn && s.site.heroVideo && !s.heroVideoFailed),
+        heroSlotOn: !(s.site.heroVideoOn && s.site.heroVideo && !s.heroVideoFailed),
+        heroVideo: s.site.heroVideo, heroPoster: s.site.heroPoster || undefined,
+        kicker: s.site.kicker[s.lang] || s.site.kicker.en,
+        title: s.site.title[s.lang] || s.site.title.en,
+        sub: s.site.sub[s.lang] || s.site.sub.en
+      },
+      toast: s.toast, leadStatuses: LEAD_STATUSES,
+      signedIn: !!s.auth, notSignedIn: !s.auth,
+      sessionName: s.auth ? s.auth.name : '',
+      sessionRole: s.auth ? s.auth.role : '',
+      sessionInitial: s.auth ? s.auth.name.charAt(0) : '',
+      onSignOut: function () { self.signOut(); },
+      onStaffLogin: function () { self.setState({ screen: 'login', loginError: '' }); window.scrollTo(0, 0); },
+      scrollToCatalogue: function () { window.location.hash = 'catalogue'; },
+      loginEmail: s.loginForm.email, loginPass: s.loginForm.pass, loginError: s.loginError,
+      hasLoginError: !!s.loginError,
+      onLoginEmail: function (e) { self.setState({ loginForm: Object.assign({}, s.loginForm, { email: e.target.value }), loginError: '' }); },
+      onLoginPass: function (e) { self.setState({ loginForm: Object.assign({}, s.loginForm, { pass: e.target.value }), loginError: '' }); },
+      onLoginKey: function (e) { if (e.key === 'Enter') self.signIn(); },
+      onSignIn: function () { self.signIn(); },
+      backToPublic: function () { self.setState({ screen: 'store', loginError: '' }); window.scrollTo(0, 0); },
+      gateTitle: gated && s.screen !== 'login' ? 'This area needs a sign-in' : 'Staff sign-in',
+      gateSub: gated && s.screen !== 'login'
+        ? (s.auth ? 'Your role (' + s.auth.role + ') does not include this area. Sign in with an account that does.' : 'The ' + (s.screen === 'garage' ? 'customer portal' : 'admin area') + ' is not public. Sign in to continue.')
+
+        : 'Reached via /admin. Inventory, the site editor, CRM, quotations and reporting sit behind this gate — the public site carries no link to it.',
+      demoAccounts: USERS.map(function (u) {
+        return {
+          label: u.role, email: u.email,
+          onClick: function () { self.setState({ loginForm: { email: u.email, pass: u.pass }, loginError: '' }); },
+          scope: (ROLE_ACCESS[u.role] || []).map(function (x) {
+            return { store: 'Showroom', dashboard: 'Dashboard', content: 'Site editor', inventory: 'Inventory', crm: 'Sales desk', quote: 'Quotes', garage: 'My Garage', mobile: 'Mobile' }[x];
+          }).filter(Boolean).join(' · ')
+        };
+      })
+    };
+
+    /* ── storefront ── */
+    if (vals.isStore) {
+      const brands = ['All'].concat(cars.map(function (v) { return v.brand; }).filter(function (b, i, a) { return a.indexOf(b) === i; }));
+      vals.q = s.q;
+      vals.onSearch = function (e) { self.setState({ q: e.target.value }); };
+      vals.brandChips = brands.map(function (b) {
+        return { label: b === 'All' ? t.allPowertrains : b, style: self.pill(s.brand === b), onClick: function () { self.setState({ brand: b }); } };
+      });
+      vals.sortOpts = [['brand', t.mostRequested], ['low', t.priceUp], ['high', t.priceDown]].map(function (o) {
+        return { label: o[1], style: self.segStyle(s.sort === o[0]), onClick: function () { self.setState({ sort: o[0] }); } };
+      });
+      vals.resultLabel = list.length + ' / ' + publishedCount + ' ' + t.published;
+      vals.noResults = list.length === 0;
+      vals.clearFilters = function () { self.setState({ q: '', brand: 'All' }); };
+      vals.heroStats = [
+        { value: String(publishedCount), label: t.configurations },
+        { value: String(brands.length - 1), label: t.brands },
+        { value: this.money(Math.min.apply(null, priced.map(function (v) { return v.fob; }))), label: t.from }
+      ];
+      vals.results = list.map(function (v) {
+        const c = self.pickedColor(v);
+        const ph = self.photo(v);
+        const d = v.detail || '';
+        return {
+          brand: v.brand, model: v.model.length > 52 ? v.model.slice(0, 50) + '…' : v.model,
+          hasDetail: !!d,
+          versionShort: d.length > 56 ? d.slice(0, 54) + '…' : d,
+          stock: v.stock === 'Suspended' ? t.suspended : v.stock,
+          price: self.money(v.fob), colorName: c.name,
+          priceStyle: v.fob ? 'font-family:var(--font-heading);font-size:20px' : 'font-family:var(--font-heading);font-size:15px;color:var(--color-accent-700)',
+          sub: v.moq ? t.moq + ' ' + v.moq : (v.msrp && s.site.showMsrp ? t.msrp + ' ¥' + v.msrp.toLocaleString('en-US') : t.fob),
+          heroStyle: self.heroStyle(c.hex, '138px', ph && ph.src), stockStyle: self.stockStyle(v.stock),
+          colorStyle: ph ? 'font-family:var(--font-heading);font-size:12px;color:#fff;opacity:.92' : 'font-family:var(--font-heading);font-size:12px;opacity:0.4',
+          colors: v.colors.slice(0, 6).map(function (x) { return { name: x.name, dot: self.dot(x.hex, 11) }; }),
+          onOpen: self.openVehicle(v.id)
+        };
+      });
+    }
+
+    /* ── vehicle ── */
+    if (vals.isVehicle) {
+      const v = this.car(s.vehicleId), c = this.pickedColor(v), ph = this.photo(v);
+      const slotBase = 'v-' + v.id;
+      vals.v = Object.assign({}, v, {
+        heroWrap: 'height:min(400px,48vw);border-radius:var(--radius-lg);overflow:hidden;background:linear-gradient(150deg,' + c.hex + '55,' + c.hex + '14)',
+        heroSlot: slotBase + '-hero',
+        /* Built as an element, not template attributes: during streaming a templated src
+           arrives as literal "{{ … }}" text and the slot requests it as a URL. Keyed on the
+           slot id so moving between vehicles remounts it with that vehicle's photo. */
+        heroSlotEl: React.createElement('image-slot', Object.assign({
+          key: slotBase + '-hero', id: slotBase + '-hero', shape: 'rounded', radius: '28', placeholder: t.noPhoto
+        }, ph ? { src: ph.src, credit: ph.credit, 'credit-href': ph.href } : {})),
+        hasDetail: !!v.detail,
+        photoHint: ph
+          ? 'Representative photo of the model via Wikimedia Commons — trim and colour may differ. Drop a verified photograph to replace it.'
+          : 'Slot keyed to this configuration — the drop persists. Source priority: manufacturer media, then official dealership media.',
+        priceMain: this.money(v.fob),
+        priceSub: v.fob ? (s.currency === 'USD' ? 'Estimated ' + this.money(v.fob, 'DZD') + ' at the admin rate' : 'Base $' + v.fob.toLocaleString('en-US') + ' FOB · estimated conversion') : 'No FOB price printed on the sheet',
+        hasPrice: !!v.fob && s.site.showFinance,
+        show360: s.site.show360,
+        showRelated: s.site.showRelated,
+        stock: v.stock === 'Suspended' ? t.suspended : v.stock,
+        stockStyle: this.stockStyle(v.stock),
+        moqLabel: v.moq ? t.moq + ' ' + v.moq : t.moq + ' ' + t.notSpecified,
+        msrpLabel: v.msrp && s.site.showMsrp ? t.msrp + ' ¥' + v.msrp.toLocaleString('en-US') : ''
+      });
+      vals.hasColors = v.colors.length > 0;
+      vals.noColors = v.colors.length === 0;
+      vals.vColors = v.colors.map(function (x) {
+        const on = x.name === c.name;
+        return {
+          name: x.name, zh: x.zh, surcharge: x.surcharge, dot: self.dot(x.hex, 16),
+          chip: 'display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 8px;border-radius:2px;cursor:pointer;font-family:var(--font-body);' +
+            (on ? 'background:var(--color-accent-200);border:1px solid var(--color-accent)' : 'background:var(--color-surface);border:1px solid var(--color-divider)'),
+          onClick: function () { self.setState(function (st) { const cp = Object.assign({}, st.colorPick); cp[v.id] = x.name; return { colorPick: cp }; }); }
+        };
+      });
+      vals.gallery = VIEWS.map(function (view) { return { view: view, slot: slotBase + '-' + view.replace(/[^a-z0-9]+/gi, '') }; });
+      const ns = t.notSpecified, cd = t.contactDealer;
+      vals.specRows = [
+        ['Brand', v.brand], ['Version as printed', v.version],
+        ['Exterior colours', v.colorSource || ns], ['Interior', v.interior || ns],
+        ['China MSRP', v.msrp ? '¥' + v.msrp.toLocaleString('en-US') : ns],
+        ['FOB price', v.fob ? '$' + v.fob.toLocaleString('en-US') : ns],
+        ['Minimum order', v.moq ? v.moq + ' units' : ns],
+        ['Powertrain', ns], ['Dimensions', ns], ['Equipment', cd]
+      ].map(function (r) {
+        const missing = r[1] === ns || r[1] === cd;
+        return { label: r[0], value: r[1], valueStyle: missing ? 'font-size:13px;color:var(--color-neutral-600);font-style:italic;text-align:right' : 'font-size:13px;font-weight:600;text-align:right;max-width:62%;text-wrap:pretty' };
+      });
+      vals.equipmentCopy = 'The source price list itemises price, colour and minimum order only. Equipment and interior trim are marked ' + ns + ' rather than assumed — confirmed against the factory order sheet before the quotation is signed.';
+      if (v.fob) {
+        const down = Math.round(v.fob * s.down / 100), financed = v.fob - down, i = (Number(s.rate) || 0) / 1200;
+        const monthly = i > 0 ? financed * i / (1 - Math.pow(1 + i, -s.term)) : financed / s.term;
+        vals.finance = { downPct: s.down, rate: s.rate, downLabel: t.down + ' · ' + s.down + '%', downAmount: this.money(down), monthly: this.money(Math.round(monthly)) + ' /mo' };
+        vals.termOpts = [24, 36, 48, 60].map(function (x) {
+          return { label: String(x), style: self.segStyle(s.term === x), onClick: function () { self.setState({ term: x }); } };
+        });
+        vals.onDown = function (e) { self.setState({ down: Number(e.target.value) }); };
+        vals.onRate = function (e) { self.setState({ rate: e.target.value }); };
+      }
+      vals.ctas = [
+        { label: t.quote, cls: 'btn btn-primary', onClick: this.openDialog('Request quotation') },
+        { label: t.testDrive, cls: 'btn btn-secondary', onClick: this.openDialog('Book test drive') },
+        { label: t.reserve, cls: 'btn btn-secondary', onClick: this.openDialog('Reserve vehicle') },
+        { label: t.tradeIn, cls: 'btn btn-secondary', onClick: this.openDialog('Trade-in request') },
+        { label: t.whatsapp, cls: 'btn btn-ghost', onClick: this.openDialog('WhatsApp inquiry') }
+      ];
+      vals.askFinance = this.openDialog('Request financing');
+      vals.askInfo = this.openDialog('Request more information');
+      vals.backToStore = this.go('store');
+      vals.related = cars.filter(function (x) { return x.published && x.id !== v.id && x.brand === v.brand; }).slice(0, 4).map(function (x) {
+        const xc = self.pickedColor(x);
+        return { brand: x.brand, model: x.model.length > 44 ? x.model.slice(0, 42) + '…' : x.model, price: self.money(x.fob), thumbStyle: self.heroStyle(xc.hex, '74px', self.photo(x) && self.photo(x).src), onOpen: self.openVehicle(x.id) };
+      });
+    }
+
+    /* ── dialog ── */
+    vals.dialogOn = !!s.dialog;
+    if (s.dialog && s.vehicleId) {
+      const v = this.car(s.vehicleId), c = this.pickedColor(v);
+      vals.dialogTitle = s.dialog;
+      vals.dialogVehicle = v.brand + ' · ' + v.version + ' · ' + c.name;
+      vals.dialogPrice = this.money(v.fob);
+      vals.dialogDot = this.dot(c.hex, 14);
+    }
+    vals.form = s.form;
+    vals.onFormName = function (e) { self.setState({ form: Object.assign({}, s.form, { name: e.target.value }) }); };
+    vals.onFormPhone = function (e) { self.setState({ form: Object.assign({}, s.form, { phone: e.target.value }) }); };
+    vals.onFormNote = function (e) { self.setState({ form: Object.assign({}, s.form, { note: e.target.value }) }); };
+    vals.closeDialog = function () { self.setState({ dialog: null }); };
+    vals.submitDialog = function () { self.submit(); };
+
+    /* ── site editor ── */
+    if (vals.isContent) {
+      const st = s.site, cl = s.contentLang;
+      const langName = { en: 'English', fr: 'Français', zh: '中文' }[cl];
+      vals.content = {
+        name: st.name, whatsapp: st.whatsapp, email: st.email, phone: st.phone, address: st.address,
+        barOn: st.barOn, barTitle: st.barTitle, barText: st.barText,
+        heroVideo: st.heroVideo, heroPoster: st.heroPoster,
+        kicker: st.kicker[cl] || '', title: st.title[cl] || '', sub: st.sub[cl] || '',
+        langName: langName,
+        editingNote: 'Editing the ' + langName + ' storefront. Switch the tab to translate the same field.'
+      };
+      vals.contentLangTabs = [['en', 'English'], ['fr', 'Français'], ['zh', '中文']].map(function (x) {
+        return { label: x[1], style: self.segStyle(cl === x[0]), onClick: function () { self.setState({ contentLang: x[0] }); } };
+      });
+      const field = function (key) { return function (e) { self.setSite((function () { const o = {}; o[key] = e.target.value; return o; })()); }; };
+      vals.onSiteName = field('name'); vals.onSiteWhatsapp = field('whatsapp'); vals.onSiteEmail = field('email');
+      vals.onSitePhone = field('phone'); vals.onSiteAddress = field('address');
+      vals.onSiteBarTitle = field('barTitle'); vals.onSiteBarText = field('barText');
+      vals.onSiteHeroVideo = function (e) { self.setState({ heroVideoFailed: false, heroBlob: null }); self.setSite({ heroVideo: e.target.value }); };
+      vals.onSiteHeroPoster = field('heroPoster');
+      const src = s.heroBlob ? s.heroBlobName : st.heroVideo;
+      vals.heroVideoState = !src
+        ? 'No film set — the hero shows the drop-in image slot instead.'
+        : s.heroVideoFailed
+          ? 'Cannot load ' + String(src).slice(0, 60) + ' — the hero fell back to the image slot. Put the file at that path, or paste a CDN link.'
+          : 'Looping ' + String(src).split('/').pop().slice(0, 52);
+      /* A picked file previews from an object URL — never persisted, since blob: dies on reload. */
+      vals.onHeroFile = function (e) {
+        const f = e.target.files && e.target.files[0];
+        if (!f) return;
+        const mb = f.size / 1048576;
+        if (self.state.heroBlob) URL.revokeObjectURL(self.state.heroBlob);
+        self.setState({ heroBlob: URL.createObjectURL(f), heroBlobName: f.name, heroVideoFailed: false });
+        self.setSite({ heroVideoOn: true });
+        self.flash(mb > 12
+          ? 'Previewing ' + f.name + ' · ' + mb.toFixed(0) + ' MB — compress under 8 MB before launch'
+          : 'Previewing ' + f.name + ' · ' + mb.toFixed(1) + ' MB');
+      };
+      vals.onSiteKicker = function (e) { self.setSiteLang('kicker', e.target.value); };
+      vals.onSiteTitle = function (e) { self.setSiteLang('title', e.target.value); };
+      vals.onSiteSub = function (e) { self.setSiteLang('sub', e.target.value); };
+      vals.siteToggles = [
+        ['heroVideoOn', 'Hero video', 'Play the looping film behind the headline — off falls back to the image slot'],
+        ['barOn', 'Announcement bar', 'The sage strip under the navigation'],
+        ['showMsrp', 'China MSRP', 'Show the ¥ reference price on cards and specs'],
+        ['showFinance', 'Finance calculator', 'The monthly estimate block on vehicle pages'],
+        ['show360', '360° viewer block', 'The turntable placeholder card'],
+        ['showRelated', 'Related configurations', 'The same-brand row at the foot of a vehicle page']
+      ].map(function (x) {
+        const on = !!st[x[0]];
+        return {
+          label: x[1], hint: x[2], state: on ? 'On' : 'Off',
+          rowStyle: 'display:flex;align-items:center;gap:var(--space-3);background:var(--color-bg);border-radius:var(--radius-lg);padding:var(--space-3) var(--space-4);cursor:pointer',
+          pillStyle: 'flex:none;width:44px;height:24px;border-radius:999px;padding:3px;display:flex;transition:background .15s;background:' + (on ? 'var(--color-accent)' : 'var(--color-neutral-300)') + ';justify-content:' + (on ? 'flex-end' : 'flex-start'),
+          knobStyle: 'width:18px;height:18px;border-radius:999px;background:var(--color-neutral-100);box-shadow:var(--shadow-sm)',
+          onToggle: function () {
+            const o = {}; o[x[0]] = !on; self.setSite(o);
+            self.logAudit('Site setting · ' + x[1] + ' → ' + (!on ? 'On' : 'Off'));
+          }
+        };
+      });
+      vals.resetSite = function () {
+        const d = defaultSite(self.props);
+        self.setState({ site: d });
+        try { window.localStorage.removeItem(SITE_KEY); } catch (e) { /* no-op */ }
+        self.flash('Site content reset to the shipped defaults');
+      };
+      vals.previewSite = function () { self.setState({ screen: 'store' }); window.scrollTo(0, 0); };
+    }
+
+    /* ── dashboard ── */
+    if (vals.isDash) {
+      const invValue = priced.reduce(function (a, v) { return a + v.fob * (v.moq || 1); }, 0);
+      const won = s.leads.filter(function (l) { return l.status === 'Won'; }).length;
+      const big = 'font-family:var(--font-heading);font-size:26px;line-height:1.15';
+      vals.kpis = [
+        { label: 'Configurations', value: String(cars.length), sub: publishedCount + ' published', valueStyle: big },
+        { label: 'Brand blocks', value: '18', sub: 'as grouped on the sheet', valueStyle: big },
+        { label: 'Catalogue value', value: this.money(invValue), sub: 'FOB × min order', valueStyle: big },
+        { label: 'Lowest FOB', value: this.money(Math.min.apply(null, priced.map(function (v) { return v.fob; }))), sub: 'Roewe i5 Manual', valueStyle: big },
+        { label: 'Highest FOB', value: this.money(Math.max.apply(null, priced.map(function (v) { return v.fob; }))), sub: 'ZEEKR 9X 曜黑', valueStyle: big },
+        { label: 'New leads', value: String(newLeads), sub: 'unassigned', valueStyle: big + ';color:var(--color-accent-700)' },
+        { label: 'Open deals', value: String(s.deals.filter(function (d) { return d.stage !== 'Completed'; }).length), sub: 'in pipeline', valueStyle: big },
+        { label: 'Conversion', value: (s.leads.length ? Math.round(won / s.leads.length * 100) : 0) + '%', sub: 'leads won', valueStyle: big + ';color:var(--color-accent-2-800)' }
+      ];
+      const bm = {};
+      cars.forEach(function (v) { bm[v.brand] = (bm[v.brand] || 0) + 1; });
+      const bk = Object.keys(bm).sort(function (a, b) { return bm[b] - bm[a]; });
+      const bMax = bm[bk[0]] || 1;
+      vals.brandBars = bk.map(function (k) { return { label: k, count: bm[k], style: self.bar(Math.round(bm[k] / bMax * 100), 'var(--color-accent-2-500)', true) }; });
+      const bands = [[0, 10000, '<10k'], [10000, 15000, '10–15k'], [15000, 20000, '15–20k'], [20000, 30000, '20–30k'], [30000, 45000, '30–45k'], [45000, 60000, '45–60k'], [60000, 80000, '60–80k'], [80000, 1e9, '80k+']];
+      const counts = bands.map(function (b) { return priced.filter(function (v) { return v.fob >= b[0] && v.fob < b[1]; }).length; });
+      const cMax = Math.max.apply(null, counts);
+      vals.priceBands = bands.map(function (b, i) { return { label: b[2], count: counts[i], style: self.bar(Math.round(counts[i] / cMax * 100), i > 4 ? 'var(--color-accent)' : 'var(--color-accent-300)', false) }; });
+      const steps = ['New', 'Contacted', 'Qualified', 'Negotiation', 'Reserved', 'Won'];
+      const total = s.leads.length || 1;
+      vals.funnel = steps.map(function (f, i) {
+        const n = s.leads.filter(function (l) { return l.status === f; }).length;
+        return { label: f, count: n, style: self.bar(Math.round(n / total * 100), i === steps.length - 1 ? 'var(--color-accent-2-500)' : 'var(--color-accent-400)', true) };
+      });
+      const noColor = cars.filter(function (v) { return !v.colors.length; }).length;
+      const noMsrp = cars.filter(function (v) { return !v.msrp; }).length;
+      const noFob = cars.filter(function (v) { return !v.fob; }).length;
+      vals.completeness = [
+        { value: cars.length - noColor + ' / ' + cars.length, label: 'rows with at least one colour named' },
+        { value: cars.length - noMsrp + ' / ' + cars.length, label: 'rows with a China MSRP printed' },
+        { value: cars.length - noFob + ' / ' + cars.length, label: 'rows with an FOB price printed' },
+        { value: '0 / ' + cars.length, label: 'rows with verified photography attached' }
+      ];
+    }
+
+    /* ── inventory ── */
+    if (vals.isInv) {
+      const iq = s.invQ.trim().toLowerCase();
+      const rows = iq ? cars.filter(function (v) { return (v.brand + ' ' + v.version).toLowerCase().indexOf(iq) > -1; }) : cars;
+      vals.invCountLabel = rows.length + ' of ' + cars.length + ' rows';
+      vals.invQ = s.invQ;
+      vals.onInvSearch = function (e) { self.setState({ invQ: e.target.value }); };
+      vals.invRows = rows.map(function (v) {
+        const on = s.sel.indexOf(v.id) > -1;
+        return {
+          brand: v.brand, version: v.version, price: self.money(v.fob),
+          msrp: v.msrp ? '¥' + v.msrp.toLocaleString('en-US') : '—',
+          moq: v.moq || '—', stock: v.stock === 'Suspended' ? t.suspended : v.stock,
+          stockStyle: self.stockStyle(v.stock), selected: on,
+          rowStyle: on ? 'background:color-mix(in srgb, var(--color-accent) 8%, transparent)' : '',
+          colors: v.colors.slice(0, 6).map(function (c) { return { name: c.name, dot: self.dot(c.hex, 12) }; }),
+          pubLabel: v.published ? 'Published' : 'Draft',
+          pubStyle: 'cursor:pointer;border:0;font-family:var(--font-body);' + (v.published ? 'background:var(--color-accent-2-100);color:var(--color-accent-2-800)' : 'background:var(--color-neutral-300);color:var(--color-neutral-900)'),
+          expandLabel: s.expanded === v.id ? 'Close' : 'Manage',
+          onSelect: function () {
+            self.setState(function (st) {
+              const has = st.sel.indexOf(v.id) > -1;
+              return { sel: has ? st.sel.filter(function (x) { return x !== v.id; }) : st.sel.concat([v.id]) };
+            });
+          },
+          onPublish: function () { self.patch(v.id, { published: !v.published }); self.logAudit(v.version.slice(0, 44) + ' ' + (v.published ? 'unpublished' : 'published')); },
+          onExpand: function () { self.setState({ expanded: s.expanded === v.id ? null : v.id }); }
+        };
+      });
+      vals.hasSelection = s.sel.length > 0;
+      vals.selectionLabel = s.sel.length + ' selected';
+      vals.bulkActions = [
+        { label: 'Publish', onClick: function () { s.sel.forEach(function (id) { self.patch(id, { published: true }); }); self.logAudit('Bulk publish · ' + s.sel.length + ' rows'); self.flash(s.sel.length + ' rows published'); } },
+        { label: 'Unpublish', onClick: function () { s.sel.forEach(function (id) { self.patch(id, { published: false }); }); self.logAudit('Bulk unpublish · ' + s.sel.length + ' rows'); self.flash(s.sel.length + ' rows unpublished'); } },
+        { label: 'Clear', onClick: function () { self.setState({ sel: [] }); } }
+      ];
+      vals.rateEur = s.rates.EUR; vals.rateDzd = s.rates.DZD;
+      vals.onRateEur = function (e) { self.setState({ rates: Object.assign({}, s.rates, { EUR: Number(e.target.value) }) }); self.logAudit('USD/EUR → ' + e.target.value); };
+      vals.onRateDzd = function (e) { self.setState({ rates: Object.assign({}, s.rates, { DZD: Number(e.target.value) }) }); self.logAudit('USD/DZD → ' + e.target.value); };
+      vals.auditRows = s.audit;
+      vals.exportCatalogue = function () { self.flash('Exported ' + cars.length + ' rows to CSV, FOB prices as printed'); };
+      vals.expandedOn = !!s.expanded;
+      vals.newColorName = s.newColorName; vals.newColorHex = s.newColorHex;
+      vals.onNewColorName = function (e) { self.setState({ newColorName: e.target.value }); };
+      vals.onNewColorHex = function (e) { self.setState({ newColorHex: e.target.value }); };
+      if (s.expanded) {
+        const v = this.car(s.expanded);
+        vals.ex = {
+          name: v.brand + ' — ' + v.version, fob: v.fob || 0, moq: v.moq || 0,
+          colorRows: v.colors.map(function (c, i) {
+            return {
+              name: c.name, hex: c.hex, dot: self.dot(c.hex, 18),
+              onDelete: function () { self.patch(v.id, { colors: v.colors.filter(function (_, j) { return j !== i; }) }); self.logAudit('Colour removed · ' + c.name); }
+            };
+          }),
+          views: VIEWS.map(function (view) { return { view: view, slot: 'a-' + v.id + '-' + view.replace(/[^a-z0-9]+/gi, '') }; })
+        };
+        vals.onFobChange = function (e) {
+          const n = Number(e.target.value);
+          self.patch(v.id, { fob: n });
+          self.logAudit('FOB ' + (v.fob || '—') + ' → ' + n + ' · deviates from CPC-kai 0901');
+        };
+        vals.onMoqChange = function (e) { self.patch(v.id, { moq: Number(e.target.value) }); };
+        vals.addColor = function () {
+          const name = s.newColorName.trim();
+          if (!name) { self.flash('Give the colour a name first'); return; }
+          self.patch(v.id, { colors: v.colors.concat([{ name: name, hex: s.newColorHex, zh: null, surcharge: null }]) });
+          self.logAudit('Colour added · ' + name + ' ' + s.newColorHex);
+          self.setState({ newColorName: '' });
+        };
+      }
+    }
+
+    /* ── CRM ── */
+    if (vals.isCrm) {
+      vals.crmTabs = [['leads', 'Leads'], ['pipeline', 'Pipeline']].map(function (x) {
+        return { label: x[1], style: self.segStyle(s.crmTab === x[0]), onClick: function () { self.setState({ crmTab: x[0] }); } };
+      });
+      vals.isLeads = s.crmTab === 'leads';
+      vals.isPipeline = s.crmTab === 'pipeline';
+      vals.crmSummary = s.leads.length + ' leads · ' + s.deals.length + ' deals · ' + newLeads + ' unassigned';
+      vals.leadRows = s.leads.map(function (l, i) {
+        const v = self.car(l.vehicleId) || { brand: '—', version: 'Unknown', colors: [], fob: null };
+        const col = v.colors.filter(function (c) { return c.name === l.color; })[0] || { hex: '#a19786' };
+        return {
+          name: l.name, date: l.date + ' · ' + l.id, brand: v.brand,
+          vehicle: v.version.length > 54 ? v.version.slice(0, 52) + '…' : v.version,
+          color: l.color, dot: self.dot(col.hex, 12), price: self.money(v.fob),
+          source: l.source, owner: l.owner, status: l.status, task: l.task,
+          taskStyle: l.owner === 'Unassigned' ? 'background:var(--color-accent-200);color:var(--color-accent-800);font-size:10px' : 'background:var(--color-neutral-200);color:var(--color-neutral-800);font-size:10px',
+          onStatus: function (e) {
+            const next = e.target.value;
+            self.setState(function (st) { return { leads: st.leads.map(function (x, j) { return j === i ? Object.assign({}, x, { status: next }) : x; }) }; });
+            self.flash(l.name + ' → ' + next);
+          }
+        };
+      });
+      vals.stages = STAGES.map(function (stage) {
+        const deals = s.deals.filter(function (d) { return d.stage === stage; });
+        const value = deals.reduce(function (a, d) { const v = self.car(d.vehicleId); return a + (v && v.fob ? v.fob : 0); }, 0);
+        const hot = s.overStage === stage;
+        return {
+          label: stage, count: deals.length, value: value ? self.money(value) : '—', empty: deals.length === 0,
+          colStyle: 'display:flex;flex-direction:column;gap:var(--space-2);border-radius:var(--radius-lg);padding:var(--space-2);min-height:130px;transition:background .12s;' +
+            (hot ? 'background:var(--color-accent-200);outline:2px dashed var(--color-accent)' : 'background:var(--color-surface)'),
+          onDragOver: function (e) { e.preventDefault(); if (s.overStage !== stage) self.setState({ overStage: stage }); },
+          onDragLeave: function () { if (s.overStage === stage) self.setState({ overStage: null }); },
+          onDrop: function (e) {
+            e.preventDefault();
+            const id = s.dragId;
+            if (!id) return;
+            self.setState(function (st) {
+              return { deals: st.deals.map(function (x) { return x.id === id ? Object.assign({}, x, { stage: stage }) : x; }), dragId: null, overStage: null };
+            });
+            self.flash(id + ' → ' + stage);
+          },
+          deals: deals.map(function (d) {
+            const v = self.car(d.vehicleId) || { brand: '', version: 'Unknown', fob: null };
+            const dragging = s.dragId === d.id;
+            return {
+              id: d.id, customer: d.customer,
+              vehicle: (v.brand + ' ' + v.version).slice(0, 48),
+              price: self.money(v.fob), salesperson: d.salesperson,
+              initials: d.salesperson === 'Unassigned' ? '?' : d.salesperson.charAt(0),
+              ownerStyle: 'background:var(--color-accent-200);color:var(--color-accent-800);font-size:10px;padding:1px 7px',
+              cardStyle: 'display:flex;flex-direction:column;gap:5px;padding:var(--space-3);border-radius:var(--radius-lg);background:var(--color-bg);cursor:grab;box-shadow:var(--shadow-sm);' + (dragging ? 'opacity:0.45' : ''),
+              onDragStart: function (e) { e.dataTransfer.effectAllowed = 'move'; self.setState({ dragId: d.id }); },
+              onDragEnd: function () { self.setState({ dragId: null, overStage: null }); },
+              onQuote: function () {
+                self.setState({ screen: 'quote', quote: Object.assign({}, s.quote, { vehicleId: d.vehicleId, customer: d.customer, salesperson: d.salesperson, status: 'Draft' }) });
+                window.scrollTo(0, 0);
+              }
+            };
+          })
+        };
+      });
+    }
+
+    /* ── quote ── */
+    if (vals.isQuote) {
+      const q = s.quote;
+      const v = this.car(q.vehicleId) || priced[0];
+      const unit = v && v.fob ? v.fob : 0;
+      const qty = Math.max(1, Number(q.qty) || 1);
+      const disc = Number(q.discount) || 0, fees = Number(q.fees) || 0, tax = Number(q.tax) || 0, ti = Number(q.tradeIn) || 0;
+      const sub = (unit - disc) * qty;
+      const duty = sub * tax / 100;
+      const total = sub + duty + fees - ti;
+      const line = function (label, value, strong) {
+        return {
+          label: label, value: value,
+          rowStyle: 'display:flex;justify-content:space-between;gap:var(--space-3);padding:8px 0;font-size:' + (strong ? '17px' : '13px') +
+            ';border-bottom:1px solid color-mix(in srgb, var(--color-text) 10%, transparent);' + (strong ? 'font-family:var(--font-heading);border-bottom:0;padding-top:var(--space-3)' : '')
+        };
+      };
+      vals.quoteVehicleOpts = priced.map(function (x) { return { id: x.id, label: x.brand + ' — ' + (x.version.length > 56 ? x.version.slice(0, 54) + '…' : x.version) + ' · $' + x.fob.toLocaleString('en-US') }; });
+      vals.quote = {
+        vehicleId: v ? v.id : '', customer: q.customer, qty: q.qty, discount: q.discount,
+        tradeIn: q.tradeIn, fees: q.fees, tax: q.tax, status: q.status, salesperson: q.salesperson,
+        statusStyle: q.status === 'Sent' ? 'background:var(--color-accent-2-100);color:var(--color-accent-2-800)' : 'background:var(--color-neutral-200);color:var(--color-neutral-800)',
+        ref: 'Q-' + (v ? v.id.slice(-4).toUpperCase() : '0000') + '-09',
+        date: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }),
+        vehicleLabel: v ? v.brand + ' — ' + v.version : 'Select a configuration',
+        vehicleMeta: v ? ((v.colors.length ? v.colors.map(function (c) { return c.name; }).join(' / ') : t.notSpecified) + ' · ' + (v.moq ? 'min ' + v.moq + ' units' : 'no minimum printed')) : '',
+        moqWarning: v && v.moq && qty < v.moq ? 'The price list sets a minimum order of ' + v.moq + ' units for this configuration — this quotation is below it.' : '',
+        lines: [
+          line('FOB unit price', this.money(unit)),
+          line('Discount per unit', disc ? '− ' + this.money(disc) : '—'),
+          line('Units', String(qty)),
+          line('Subtotal', this.money(sub)),
+          line('Duty / tax ' + tax + '%', this.money(duty)),
+          line('Freight & fees', this.money(fees)),
+          line('Trade-in allowance', ti ? '− ' + this.money(ti) : '—'),
+          line('Total', this.money(Math.round(total)), true)
+        ]
+      };
+      vals.onQuoteVehicle = function (e) { self.setState({ quote: Object.assign({}, q, { vehicleId: e.target.value }) }); };
+      const setQ = function (k) { return function (e) { self.setState({ quote: Object.assign({}, q, (function () { const o = {}; o[k] = e.target.value; return o; })()) }); }; };
+      vals.onQuoteCustomer = setQ('customer'); vals.onQuoteQty = setQ('qty'); vals.onQuoteDiscount = setQ('discount');
+      vals.onQuoteTradeIn = setQ('tradeIn'); vals.onQuoteFees = setQ('fees'); vals.onQuoteTax = setQ('tax');
+      vals.sendQuote = function () { self.setState({ quote: Object.assign({}, q, { status: 'Sent' }) }); self.flash('Quotation marked sent · tracked for viewed / accepted / expired'); };
+      vals.printQuote = function () { window.print(); };
+    }
+
+    /* ── my garage ── */
+    if (vals.isGarage) {
+      const v = priced.filter(function (x) { return x.brand === 'Toyota'; })[0] || priced[0];
+      const c = this.pickedColor(v);
+      const steps = [['Order confirmed', '02 Sep', true], ['Factory allocation', '05 Sep', true], ['Shipped FOB', '09 Sep', true], ['Port clearance', 'Expected 24 Sep', false], ['Handover', 'Expected 02 Oct', false]];
+      vals.garage = {
+        greeting: 'Welcome back, Inès.',
+        heroStyle: this.heroStyle(c.hex, '150px', this.photo(v) && this.photo(v).src),
+        vehicle: v.brand + ' — ' + v.version,
+        vehicleMeta: c.name + ' · ' + this.money(v.fob) + ' FOB',
+        status: 'In transit', vin: 'VIN pending',
+        timeline: steps.map(function (x, i) {
+          return {
+            label: x[0], when: x[1],
+            labelStyle: 'font-size:13px;font-weight:' + (x[2] ? '600' : '400') + ';' + (x[2] ? '' : 'opacity:0.6'),
+            dot: 'width:11px;height:11px;border-radius:999px;flex:none;background:' + (x[2] ? 'var(--color-accent)' : 'var(--color-neutral-300)'),
+            line: i === steps.length - 1 ? 'display:none' : 'width:2px;flex:1;min-height:22px;background:' + (x[2] ? 'var(--color-accent-300)' : 'var(--color-neutral-300)')
+          };
+        }),
+        payments: [
+          { label: 'Reservation deposit', when: '02 Sep', amount: this.money(2000), state: 'Paid', style: 'background:var(--color-accent-2-100);color:var(--color-accent-2-800);font-size:10px' },
+          { label: 'Balance on shipment', when: 'Due 24 Sep', amount: this.money(v.fob - 2000), state: 'Due', style: 'background:var(--color-accent-200);color:var(--color-accent-800);font-size:10px' }
+        ],
+        balance: this.money(v.fob - 2000),
+        documents: [
+          { label: 'Proforma quotation', state: 'Signed', style: 'background:var(--color-accent-2-100);color:var(--color-accent-2-800);font-size:10px' },
+          { label: 'Sales contract', state: 'Signed', style: 'background:var(--color-accent-2-100);color:var(--color-accent-2-800);font-size:10px' },
+          { label: 'Commercial invoice', state: 'Issued', style: 'background:var(--color-neutral-200);color:var(--color-neutral-800);font-size:10px' },
+          { label: 'Bill of lading', state: 'Pending', style: 'background:var(--color-accent-200);color:var(--color-accent-800);font-size:10px' }
+        ],
+        saved: priced.slice(4, 7).map(function (x) {
+          const xc = self.pickedColor(x);
+          return { label: x.brand + ' — ' + (x.version.length > 40 ? x.version.slice(0, 38) + '…' : x.version), price: self.money(x.fob), dot: self.dot(xc.hex, 13), onOpen: self.openVehicle(x.id) };
+        })
+      };
+      vals.bookService = function () { self.flash('Service booking opens after handover'); };
+    }
+
+    /* ── mobile ── */
+    if (vals.isMobile) {
+      vals.mobile = {
+        count: s.leads.length + ' leads',
+        leads: s.leads.map(function (l, i) {
+          const v = self.car(l.vehicleId) || { brand: '', version: 'Unknown', colors: [], fob: null };
+          const col = v.colors.filter(function (c) { return c.name === l.color; })[0] || { hex: '#a19786' };
+          return {
+            name: l.name, status: l.status, color: l.color, dot: self.dot(col.hex, 11),
+            vehicle: (v.brand + ' ' + v.version).slice(0, 52), price: self.money(v.fob),
+            statusStyle: l.status === 'Won' ? 'background:var(--color-accent-2-100);color:var(--color-accent-2-800);font-size:10px'
+              : l.status === 'New' ? 'background:var(--color-accent-200);color:var(--color-accent-800);font-size:10px'
+                : 'background:var(--color-neutral-200);color:var(--color-neutral-800);font-size:10px',
+            onCall: function () { self.flash('Calling ' + l.name + ' · activity logged to ' + l.id); },
+            onWhats: function () { self.flash('WhatsApp thread opened · logged to ' + l.id); },
+            onAdvance: function () {
+              const at = LEAD_STATUSES.indexOf(l.status);
+              const next = LEAD_STATUSES[Math.min(LEAD_STATUSES.length - 2, at + 1)];
+              self.setState(function (st) { return { leads: st.leads.map(function (x, j) { return j === i ? Object.assign({}, x, { status: next }) : x; }) }; });
+              self.flash(l.name + ' → ' + next);
+            }
+          };
+        })
+      };
+    }
+
+    return vals;
+  }
+}
+
+</script>
+</body>
+</html>
